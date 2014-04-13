@@ -122,6 +122,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 7;
             // 
+            // bindGames
+            // 
+            this.bindGames.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

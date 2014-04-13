@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace ArcadeDataLayer.Objects
 {
-    class Game
+    public class Game
     {
         public Game() { }
         private string name;

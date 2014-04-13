@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArcadeDataLayer.Objects
 {
-    class GameReleaseImage
+    public class GameReleaseImage
     {
         public GameReleaseImage() { }
         

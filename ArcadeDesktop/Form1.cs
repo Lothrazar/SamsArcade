@@ -65,11 +65,20 @@ namespace ArcadeDesktop
 
                 label3.Text = folder;
 
+                var games = new List<GameRelease>();
+
                 DirectoryInfo d = new DirectoryInfo(folder);
                 foreach (var file in d.GetFiles("*.nes"))
                 {
-                    
+                    var g = new GameRelease();
+
+                    g.gamefile = file.Name;
+
                 }
+
+
+
+                bindGames.DataSource = games;
 
 
 

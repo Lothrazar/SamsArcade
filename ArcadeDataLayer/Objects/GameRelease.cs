@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace ArcadeDataLayer.Objects
 {
-    class GameRelease
+    public class GameRelease
     {
         public GameRelease() { }
-        private Game game;
-
-        private int year;
-
-        private string region;
-
-        private string system;
-
-        private bool isFirst;
-
-        private List<GameReleaseImage> images;
+        public Game game;
+        public int year;
+        public string gamefile;
+        public string region;
+        public string system;
+        public bool isFirst;
+        public List<GameReleaseImage> images;
     }
 }
