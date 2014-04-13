@@ -19,6 +19,22 @@ namespace ArcadeDesktop
         public Form1()
         {
             InitializeComponent();
+
+
+           
+
+            dataGridView1.AutoGenerateColumns = true;
+            //var games = new List<GameRelease>();
+            //var g = new GameRelease();
+
+            //g.gamefile = "test";
+
+
+            //games.Add(g);
+
+            //bindGames.DataSource = games;
+
+            //dataGridView1.DataSource = bindGames;
         }
 
         private void btnFindEmu_Click(object sender, EventArgs e)
@@ -59,6 +75,9 @@ namespace ArcadeDesktop
         {
             System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog();
             // This is what will execute if the user selects a folder and hits OK (File if you change to FileBrowserDialog)
+            
+       //     dlg.RootFolder=@"C:\Users\Samson\Desktop\random\games";
+            
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string folder = dlg.SelectedPath;
@@ -73,7 +92,7 @@ namespace ArcadeDesktop
                     var g = new GameRelease();
 
                     g.gamefile = file.Name;
-
+                    games.Add(g);
                 }
 
 

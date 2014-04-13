@@ -12,6 +12,8 @@ namespace ArcadeDataLayer.Objects
         public Game game;
         public int year;
         public string gamefile;
+
+        public string Gamefile { get { return gamefile; }  }
         public string region;
         public string system;
         public bool isFirst;
