@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnFindEmu = new System.Windows.Forms.Button();
             this.btnFindGame = new System.Windows.Forms.Button();
             this.btnLaunch = new System.Windows.Forms.Button();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.import = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindGames = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFindEmu
@@ -48,7 +55,7 @@
             // 
             // btnFindGame
             // 
-            this.btnFindGame.Location = new System.Drawing.Point(28, 123);
+            this.btnFindGame.Location = new System.Drawing.Point(28, 119);
             this.btnFindGame.Name = "btnFindGame";
             this.btnFindGame.Size = new System.Drawing.Size(127, 23);
             this.btnFindGame.TabIndex = 1;
@@ -58,7 +65,7 @@
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(28, 196);
+            this.btnLaunch.Location = new System.Drawing.Point(12, 356);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(127, 23);
             this.btnLaunch.TabIndex = 2;
@@ -82,17 +89,47 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 133);
+            this.label2.Location = new System.Drawing.Point(196, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
+            // import
+            // 
+            this.import.Location = new System.Drawing.Point(28, 184);
+            this.import.Name = "import";
+            this.import.Size = new System.Drawing.Size(75, 23);
+            this.import.TabIndex = 5;
+            this.import.Text = "import";
+            this.import.UseVisualStyleBackColor = true;
+            this.import.Click += new System.EventHandler(this.import_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(228, 208);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "label3";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(179, 256);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(490, 428);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.import);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLaunch);
@@ -100,6 +137,8 @@
             this.Controls.Add(this.btnFindEmu);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +152,10 @@
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button import;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource bindGames;
     }
 }
 

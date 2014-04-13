@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcadeDesktop", "ArcadeDesktop\ArcadeDesktop.csproj", "{310A09CE-EF6D-417E-BB84-DF4833F96FDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcadeDataLayer", "ArcadeDataLayer\ArcadeDataLayer.csproj", "{F1B7A32D-BC1D-419C-94A4-DDC8B4606D96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{310A09CE-EF6D-417E-BB84-DF4833F96FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{310A09CE-EF6D-417E-BB84-DF4833F96FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{310A09CE-EF6D-417E-BB84-DF4833F96FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B7A32D-BC1D-419C-94A4-DDC8B4606D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B7A32D-BC1D-419C-94A4-DDC8B4606D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B7A32D-BC1D-419C-94A4-DDC8B4606D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B7A32D-BC1D-419C-94A4-DDC8B4606D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
