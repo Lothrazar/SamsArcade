@@ -20,6 +20,9 @@ namespace ArcadeDesktop
         {
             InitializeComponent();
 
+            
+
+
             dataGridView1.AutoGenerateColumns = true;
         }
 
@@ -35,10 +38,19 @@ namespace ArcadeDesktop
 
             if (row == null) { return; }
 
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Properties.Settings.Default.nes_emu;
-            startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.gamefile;
-            Process.Start(startInfo);
+            try
+            {
+
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = Properties.Settings.Default.nes_emu;
+                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.gamefile;
+                Process.Start(startInfo);
+
+            }
+            catch(Exception )
+            {
+                MessageBox.Show("Cannot find emulator.  Link to the file in the Settings menu.");
+            }
         }
          
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -61,6 +73,13 @@ namespace ArcadeDesktop
             }
 
             bindGames.DataSource = games;
+
+
+            if(games.Count == 0)
+            {
+                MessageBox.Show("No roms found in current folder.  Change rom folder in the Settings menu");
+            }
+
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)

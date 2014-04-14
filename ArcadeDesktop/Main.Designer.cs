@@ -32,6 +32,7 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gamefileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindGames = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.gamefileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioPlain = new System.Windows.Forms.RadioButton();
             this.radioIcons = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,6 +78,14 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(466, 291);
             this.dataGridView1.TabIndex = 7;
+            // 
+            // gamefileDataGridViewTextBoxColumn
+            // 
+            this.gamefileDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gamefileDataGridViewTextBoxColumn.DataPropertyName = "Gamefile";
+            this.gamefileDataGridViewTextBoxColumn.HeaderText = "Gamefile";
+            this.gamefileDataGridViewTextBoxColumn.Name = "gamefileDataGridViewTextBoxColumn";
+            this.gamefileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bindGames
             // 
@@ -134,14 +142,6 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // gamefileDataGridViewTextBoxColumn
-            // 
-            this.gamefileDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gamefileDataGridViewTextBoxColumn.DataPropertyName = "Gamefile";
-            this.gamefileDataGridViewTextBoxColumn.HeaderText = "Gamefile";
-            this.gamefileDataGridViewTextBoxColumn.Name = "gamefileDataGridViewTextBoxColumn";
-            this.gamefileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // radioPlain
             // 

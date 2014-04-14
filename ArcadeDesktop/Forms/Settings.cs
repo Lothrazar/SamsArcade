@@ -31,7 +31,9 @@ namespace ArcadeDesktop
         private void btnSetNesFolder_Click(object sender, EventArgs e)
         {
              FolderBrowserDialog dlg = new FolderBrowserDialog();
-      
+
+             dlg.SelectedPath = Properties.Settings.Default.nes_rom;
+
              if (dlg.ShowDialog() == DialogResult.OK)
              {
                  nesRomText.Text = dlg.SelectedPath;
@@ -69,6 +71,12 @@ namespace ArcadeDesktop
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveSettingsConfig();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+           
         } 
     }
 }

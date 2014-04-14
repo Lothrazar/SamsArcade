@@ -37,6 +37,7 @@
             this.nesRomText = new System.Windows.Forms.TextBox();
             this.btnSetNesFolder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -133,6 +134,16 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "NES ROM Folder";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(185, 88);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // Settings
             // 
             this.AcceptButton = this.btnSave;
@@ -140,6 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(521, 124);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.nesRomText);
             this.Controls.Add(this.btnSetNesFolder);
             this.Controls.Add(this.label2);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.TextBox nesRomText;
         private System.Windows.Forms.Button btnSetNesFolder;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnReset;
     }
 }
