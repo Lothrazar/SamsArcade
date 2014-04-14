@@ -12,13 +12,13 @@ using System.Windows.Forms;
 using ArcadeDataLayer;
 using ArcadeDataLayer.Objects;
 using System.Net;
+using ArcadeDesktop.Forms;
 
 namespace ArcadeDesktop
 {
     public partial class Main : Form
     {
 
-        private List<GameRelease> GameReleaseList;
 
         public Main()
         {
@@ -26,8 +26,8 @@ namespace ArcadeDesktop
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
-        { 
-            var row = gameReleaseGrid.GetSelectedRow();
+        {
+            GameRelease row = null;// gameReleaseGrid.GetSelectedRow();
 
             if (row == null) { return; }
 
@@ -52,7 +52,7 @@ namespace ArcadeDesktop
 
         private void refreshRoms()
         {
-            GameReleaseList = new List<GameRelease>(); 
+            Program.GameReleaseList = new List<GameRelease>(); 
             DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
             foreach (var file in d.GetFiles("*.nes"))
@@ -60,10 +60,10 @@ namespace ArcadeDesktop
                 var g = new GameRelease();
 
                 g.gamefile = file.Name;
-                GameReleaseList.Add(g);
+                Program.GameReleaseList.Add(g);
             }
 
-            gameReleaseGrid.RefreshRoms(GameReleaseList);
+          //  gameReleaseGrid.RefreshRoms(GameReleaseList);
         }
     
 
@@ -105,22 +105,11 @@ namespace ArcadeDesktop
 
         private void Main_Load(object sender, EventArgs e)
         {
-            setDefaultView();
+         
 
             refreshRoms(); 
         }
-
-        private void setDefaultView()
-        {
-            if (Properties.Settings.Default.view == "plain")
-            {
-                radioPlain.Checked = true; 
-            }
-            else if (Properties.Settings.Default.view == "img")
-            {
-                radioIcons.Checked = true;
-            }
-        }
+ 
 
         /// <summary>
         /// events for both radio btns go here
@@ -138,41 +127,15 @@ namespace ArcadeDesktop
             }
         }
 
-        private void btnImageFetch_Click(object sender, EventArgs e)
-        {
-            var image = GetImageFromUrl(txtUrl.Text);
-
-            if (image != null)
-            {
-                pictureBox1.Image = image;
-            }
-            else
-            {
-                MessageBox.Show("Image not found.");
-                pictureBox1.Image = null;
-            } 
-        }
-
-        private static Image GetImageFromUrl(string url)
-        {
-            try
-            {
-                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
-
-                using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
-                {
-                    using (Stream stream = httpWebReponse.GetResponseStream())
-                    {
-                        return Image.FromStream(stream);
-                    }
-                }
-            }
-            catch (Exception) { return null; } 
-        }
+      
 
         private void manageGamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//TODO
+            this.Enabled = false;
+            var frm = new ManageGames();
+            frm.ShowDialog();
+            this.Enabled = true;
         }
+      
     }
 }

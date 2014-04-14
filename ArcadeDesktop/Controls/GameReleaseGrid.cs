@@ -31,12 +31,12 @@ namespace ArcadeDesktop
             return dataGridView1.SelectedRows[0].DataBoundItem as GameRelease;
         }
 
-        public void RefreshRoms(List<GameRelease> GameReleaseList)
+        public void RefreshRoms()
         {  
-            bindGames.DataSource = GameReleaseList;
+            bindGames.DataSource = Program.GameReleaseList;
 
 
-            if (GameReleaseList.Count == 0)
+            if (Program.GameReleaseList.Count == 0)
             {
                 MessageBox.Show("No roms found in current folder.  Change rom folder in the Settings menu");
             }

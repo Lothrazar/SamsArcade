@@ -37,21 +37,12 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.radioPlain = new System.Windows.Forms.RadioButton();
-            this.radioIcons = new System.Windows.Forms.RadioButton();
-            this.btnImageFetch = new System.Windows.Forms.Button();
-            this.txtUrl = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.gameReleaseGrid = new ArcadeDesktop.GameReleaseGrid();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(319, 339);
+            this.btnLaunch.Location = new System.Drawing.Point(351, 357);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(127, 23);
             this.btnLaunch.TabIndex = 2;
@@ -121,98 +112,11 @@
             this.manageGamesToolStripMenuItem.Text = "Manage Games";
             this.manageGamesToolStripMenuItem.Click += new System.EventHandler(this.manageGamesToolStripMenuItem_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(238, 339);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 9;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // radioPlain
-            // 
-            this.radioPlain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioPlain.AutoSize = true;
-            this.radioPlain.Location = new System.Drawing.Point(343, 7);
-            this.radioPlain.Name = "radioPlain";
-            this.radioPlain.Size = new System.Drawing.Size(78, 17);
-            this.radioPlain.TabIndex = 10;
-            this.radioPlain.TabStop = true;
-            this.radioPlain.Tag = "plain";
-            this.radioPlain.Text = "Plain Table";
-            this.radioPlain.UseVisualStyleBackColor = true;
-            this.radioPlain.CheckedChanged += new System.EventHandler(this.radioView_CheckedChanged);
-            // 
-            // radioIcons
-            // 
-            this.radioIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioIcons.AutoSize = true;
-            this.radioIcons.Location = new System.Drawing.Point(427, 7);
-            this.radioIcons.Name = "radioIcons";
-            this.radioIcons.Size = new System.Drawing.Size(51, 17);
-            this.radioIcons.TabIndex = 11;
-            this.radioIcons.TabStop = true;
-            this.radioIcons.Tag = "img";
-            this.radioIcons.Text = "Icons";
-            this.radioIcons.UseVisualStyleBackColor = true;
-            this.radioIcons.CheckedChanged += new System.EventHandler(this.radioView_CheckedChanged);
-            // 
-            // btnImageFetch
-            // 
-            this.btnImageFetch.Location = new System.Drawing.Point(50, 426);
-            this.btnImageFetch.Name = "btnImageFetch";
-            this.btnImageFetch.Size = new System.Drawing.Size(127, 23);
-            this.btnImageFetch.TabIndex = 12;
-            this.btnImageFetch.Text = "Fetch Image from URL";
-            this.btnImageFetch.UseVisualStyleBackColor = true;
-            this.btnImageFetch.Click += new System.EventHandler(this.btnImageFetch_Click);
-            // 
-            // txtUrl
-            // 
-            this.txtUrl.Location = new System.Drawing.Point(50, 400);
-            this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(317, 20);
-            this.txtUrl.TabIndex = 13;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(221, 435);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 204);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 365);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "TODO: data grid and image loader in diff controls. ";
-            // 
-            // gameReleaseGrid
-            // 
-            this.gameReleaseGrid.Location = new System.Drawing.Point(12, 39);
-            this.gameReleaseGrid.Name = "gameReleaseGrid";
-            this.gameReleaseGrid.Size = new System.Drawing.Size(441, 280);
-            this.gameReleaseGrid.TabIndex = 16;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 613);
-            this.Controls.Add(this.gameReleaseGrid);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtUrl);
-            this.Controls.Add(this.btnImageFetch);
-            this.Controls.Add(this.radioIcons);
-            this.Controls.Add(this.radioPlain);
-            this.Controls.Add(this.btnRefresh);
+            this.ClientSize = new System.Drawing.Size(490, 392);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -221,7 +125,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,16 +139,8 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.RadioButton radioPlain;
-        private System.Windows.Forms.RadioButton radioIcons;
-        private System.Windows.Forms.Button btnImageFetch;
-        private System.Windows.Forms.TextBox txtUrl;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGamesToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private GameReleaseGrid gameReleaseGrid;
     }
 }
 
