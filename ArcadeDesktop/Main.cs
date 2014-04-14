@@ -49,42 +49,28 @@ namespace ArcadeDesktop
             startInfo.Arguments = gamefile;
             Process.Start(startInfo);
         }
-
-        private void import_Click(object sender, EventArgs e)
+         
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog();
-            // This is what will execute if the user selects a folder and hits OK (File if you change to FileBrowserDialog)
-            
-       //     dlg.RootFolder=@"C:\Users\Samson\Desktop\random\games";
-            
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string folder = dlg.SelectedPath;
+        
+            var games = new List<GameRelease>();
 
-                //label3.Text = folder;
-
-                var games = new List<GameRelease>();
-
-                DirectoryInfo d = new DirectoryInfo(folder);
-                foreach (var file in d.GetFiles("*.nes"))
-                {
-                    var g = new GameRelease();
-
-                    g.gamefile = file.Name;
-                    games.Add(g);
-                }
-
-
-
-                bindGames.DataSource = games;
-
-
-
-            }
+            DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
            
+            
+            
+            foreach (var file in d.GetFiles("*.nes"))
+            {
+                var g = new GameRelease();
+
+                g.gamefile = file.Name;
+                games.Add(g);
+            }
 
 
 
+            bindGames.DataSource = games;
+             
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,5 +93,7 @@ namespace ArcadeDesktop
             frm.ShowDialog();
             this.Enabled = true;
         }
+
+       
     }
 }

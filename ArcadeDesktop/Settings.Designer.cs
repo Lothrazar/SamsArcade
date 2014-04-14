@@ -148,9 +148,13 @@
             this.Controls.Add(this.nesEmuText);
             this.Controls.Add(this.btnSetNesEmu);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(537, 162);
             this.Name = "Settings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
             this.ResumeLayout(false);
