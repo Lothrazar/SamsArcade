@@ -20,45 +20,33 @@ namespace ArcadeDesktop
         {
             InitializeComponent();
 
-
-           
-
             dataGridView1.AutoGenerateColumns = true;
-            //var games = new List<GameRelease>();
-            //var g = new GameRelease();
-
-            //g.gamefile = "test";
-
-
-            //games.Add(g);
-
-            //bindGames.DataSource = games;
-
-            //dataGridView1.DataSource = bindGames;
         }
 
-    
-
         private void btnLaunch_Click(object sender, EventArgs e)
-        { 
-            string EXE ="";
-            string gamefile = "";
-             
+        {
+            if( dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected) <= 0)
+            {
+                //no rows selected //TODO: maybe show a message
+                return;
+            }
+
+            var row = dataGridView1.SelectedRows[0].DataBoundItem as GameRelease;
+
+            if (row == null) { return; }
+
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = EXE;
-            startInfo.Arguments = gamefile;
+            startInfo.FileName = Properties.Settings.Default.nes_emu;
+            startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.gamefile;
             Process.Start(startInfo);
         }
          
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-        
             var games = new List<GameRelease>();
 
             DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
            
-            
-            
             foreach (var file in d.GetFiles("*.nes"))
             {
                 var g = new GameRelease();
@@ -67,10 +55,7 @@ namespace ArcadeDesktop
                 games.Add(g);
             }
 
-
-
             bindGames.DataSource = games;
-             
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +78,5 @@ namespace ArcadeDesktop
             frm.ShowDialog();
             this.Enabled = true;
         }
-
-       
     }
 }
