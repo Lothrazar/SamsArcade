@@ -37,30 +37,12 @@ namespace ArcadeDesktop
             //dataGridView1.DataSource = bindGames;
         }
 
-        private void btnFindEmu_Click(object sender, EventArgs e)
-        {
-            DialogResult result = ofd.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                label1.Text = ofd.FileName;
-            }
-
-
-        }
-
-        private void btnFindGame_Click(object sender, EventArgs e)
-        {
-            DialogResult result = ofd.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                label2.Text = ofd.FileName;
-            } 
-        }
+    
 
         private void btnLaunch_Click(object sender, EventArgs e)
         { 
-            string EXE = label2.Text;
-            string gamefile = label1.Text;
+            string EXE ="";
+            string gamefile = "";
              
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = EXE;
@@ -79,7 +61,7 @@ namespace ArcadeDesktop
             {
                 string folder = dlg.SelectedPath;
 
-                label3.Text = folder;
+                //label3.Text = folder;
 
                 var games = new List<GameRelease>();
 
