@@ -191,5 +191,10 @@ namespace ArcadeDesktop
             }
             catch (Exception) { return null; } 
         }
+
+        private void manageGamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
