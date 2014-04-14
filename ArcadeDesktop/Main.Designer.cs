@@ -42,9 +42,13 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.radioPlain = new System.Windows.Forms.RadioButton();
             this.radioIcons = new System.Windows.Forms.RadioButton();
+            this.btnImageFetch = new System.Windows.Forms.Button();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindGames)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLaunch
@@ -114,14 +118,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -129,7 +133,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -145,8 +149,9 @@
             // 
             // radioPlain
             // 
+            this.radioPlain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioPlain.AutoSize = true;
-            this.radioPlain.Location = new System.Drawing.Point(130, 6);
+            this.radioPlain.Location = new System.Drawing.Point(343, 7);
             this.radioPlain.Name = "radioPlain";
             this.radioPlain.Size = new System.Drawing.Size(78, 17);
             this.radioPlain.TabIndex = 10;
@@ -158,8 +163,9 @@
             // 
             // radioIcons
             // 
+            this.radioIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioIcons.AutoSize = true;
-            this.radioIcons.Location = new System.Drawing.Point(214, 6);
+            this.radioIcons.Location = new System.Drawing.Point(427, 7);
             this.radioIcons.Name = "radioIcons";
             this.radioIcons.Size = new System.Drawing.Size(51, 17);
             this.radioIcons.TabIndex = 11;
@@ -169,11 +175,39 @@
             this.radioIcons.UseVisualStyleBackColor = true;
             this.radioIcons.CheckedChanged += new System.EventHandler(this.radioView_CheckedChanged);
             // 
+            // btnImageFetch
+            // 
+            this.btnImageFetch.Location = new System.Drawing.Point(50, 426);
+            this.btnImageFetch.Name = "btnImageFetch";
+            this.btnImageFetch.Size = new System.Drawing.Size(127, 23);
+            this.btnImageFetch.TabIndex = 12;
+            this.btnImageFetch.Text = "Fetch Image from URL";
+            this.btnImageFetch.UseVisualStyleBackColor = true;
+            this.btnImageFetch.Click += new System.EventHandler(this.btnImageFetch_Click);
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(50, 400);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(317, 20);
+            this.txtUrl.TabIndex = 13;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(221, 435);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 204);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 428);
+            this.ClientSize = new System.Drawing.Size(490, 613);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.btnImageFetch);
             this.Controls.Add(this.radioIcons);
             this.Controls.Add(this.radioPlain);
             this.Controls.Add(this.btnRefresh);
@@ -188,6 +222,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +243,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gamefileDataGridViewTextBoxColumn;
         private System.Windows.Forms.RadioButton radioPlain;
         private System.Windows.Forms.RadioButton radioIcons;
+        private System.Windows.Forms.Button btnImageFetch;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

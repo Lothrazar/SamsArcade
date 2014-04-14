@@ -11,11 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ArcadeDataLayer;
 using ArcadeDataLayer.Objects;
+using System.Net;
 
 namespace ArcadeDesktop
 {
     public partial class Main : Form
     {
+
+        private List<GameRelease> GameReleaseList;
+
         public Main()
         {
             InitializeComponent();
@@ -60,7 +64,7 @@ namespace ArcadeDesktop
 
         private void refreshRoms()
         {
-            var games = new List<GameRelease>();
+            GameReleaseList = new List<GameRelease>();
 
             DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
@@ -69,13 +73,13 @@ namespace ArcadeDesktop
                 var g = new GameRelease();
 
                 g.gamefile = file.Name;
-                games.Add(g);
+                GameReleaseList.Add(g);
             }
 
-            bindGames.DataSource = games;
+            bindGames.DataSource = GameReleaseList;
 
 
-            if(games.Count == 0)
+            if (GameReleaseList.Count == 0)
             {
                 MessageBox.Show("No roms found in current folder.  Change rom folder in the Settings menu");
             }
@@ -155,6 +159,37 @@ namespace ArcadeDesktop
             }
         }
 
-       
+        private void btnImageFetch_Click(object sender, EventArgs e)
+        {
+            var image = GetImageFromUrl(txtUrl.Text);
+
+            if (image != null)
+            {
+                pictureBox1.Image = image;
+            }
+            else
+            {
+                MessageBox.Show("Image not found.");
+                pictureBox1.Image = null;
+            }
+
+        }
+
+        private static Image GetImageFromUrl(string url)
+        {
+            try
+            {
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
+
+                using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
+                {
+                    using (Stream stream = httpWebReponse.GetResponseStream())
+                    {
+                        return Image.FromStream(stream);
+                    }
+                }
+            }
+            catch (Exception) { return null; } 
+        }
     }
 }

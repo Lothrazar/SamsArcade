@@ -28,10 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gamefileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindGames = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gamefileDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindGames;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(441, 364);
+            this.dataGridView1.TabIndex = 8;
+            // 
+            // gamefileDataGridViewTextBoxColumn
+            // 
+            this.gamefileDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gamefileDataGridViewTextBoxColumn.DataPropertyName = "Gamefile";
+            this.gamefileDataGridViewTextBoxColumn.HeaderText = "Gamefile";
+            this.gamefileDataGridViewTextBoxColumn.Name = "gamefileDataGridViewTextBoxColumn";
+            this.gamefileDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindGames
+            // 
+            this.bindGames.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
+            // 
+            // GameReleaseGrid
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "GameReleaseGrid";
+            this.Size = new System.Drawing.Size(441, 364);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gamefileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bindGames;
     }
 }
