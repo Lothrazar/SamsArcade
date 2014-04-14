@@ -14,9 +14,9 @@ using ArcadeDataLayer.Objects;
 
 namespace ArcadeDesktop
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
 
@@ -58,13 +58,10 @@ namespace ArcadeDesktop
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
-        {
-          //  Process.Start(label2.Text);//TODO: pull from data source not display
-
+        { 
             string EXE = label2.Text;
             string gamefile = label1.Text;
-
-
+             
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = EXE;
             startInfo.Arguments = gamefile;
@@ -106,6 +103,27 @@ namespace ArcadeDesktop
 
 
 
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            var frm = new About();
+            frm.ShowDialog();
+            this.Enabled = true;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        { 
+            this.Enabled = false;
+            var frm = new Settings();
+            frm.ShowDialog();
+            this.Enabled = true;
         }
     }
 }
