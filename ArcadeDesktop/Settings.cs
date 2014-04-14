@@ -15,7 +15,27 @@ namespace ArcadeDesktop
         public Settings()
         {
             InitializeComponent();
+
+
+
+            getSettingsFromConfig();
         }
+
+        private void getSettingsFromConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SetNesEmu_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                nesEmuText.Text = openFileDialog.FileName;
+            }
+        }
+
+      
 
 
 
