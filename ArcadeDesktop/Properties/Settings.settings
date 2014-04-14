@@ -8,5 +8,8 @@
     <Setting Name="nes_rom" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\</Value>
     </Setting>
+    <Setting Name="view" Type="System.String" Scope="User">
+      <Value Profile="(Default)">plain</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

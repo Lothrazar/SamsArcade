@@ -46,5 +46,17 @@ namespace ArcadeDesktop.Properties {
                 this["nes_rom"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("plain")]
+        public string view {
+            get {
+                return ((string)(this["view"]));
+            }
+            set {
+                this["view"] = value;
+            }
+        }
     }
 }

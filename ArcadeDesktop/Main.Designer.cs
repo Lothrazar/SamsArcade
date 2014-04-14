@@ -40,6 +40,8 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.gamefileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioPlain = new System.Windows.Forms.RadioButton();
+            this.radioIcons = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindGames)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -141,11 +143,39 @@
             this.gamefileDataGridViewTextBoxColumn.Name = "gamefileDataGridViewTextBoxColumn";
             this.gamefileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // radioPlain
+            // 
+            this.radioPlain.AutoSize = true;
+            this.radioPlain.Location = new System.Drawing.Point(130, 6);
+            this.radioPlain.Name = "radioPlain";
+            this.radioPlain.Size = new System.Drawing.Size(78, 17);
+            this.radioPlain.TabIndex = 10;
+            this.radioPlain.TabStop = true;
+            this.radioPlain.Tag = "plain";
+            this.radioPlain.Text = "Plain Table";
+            this.radioPlain.UseVisualStyleBackColor = true;
+            this.radioPlain.CheckedChanged += new System.EventHandler(this.radioView_CheckedChanged);
+            // 
+            // radioIcons
+            // 
+            this.radioIcons.AutoSize = true;
+            this.radioIcons.Location = new System.Drawing.Point(214, 6);
+            this.radioIcons.Name = "radioIcons";
+            this.radioIcons.Size = new System.Drawing.Size(51, 17);
+            this.radioIcons.TabIndex = 11;
+            this.radioIcons.TabStop = true;
+            this.radioIcons.Tag = "img";
+            this.radioIcons.Text = "Icons";
+            this.radioIcons.UseVisualStyleBackColor = true;
+            this.radioIcons.CheckedChanged += new System.EventHandler(this.radioView_CheckedChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 428);
+            this.Controls.Add(this.radioIcons);
+            this.Controls.Add(this.radioPlain);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnLaunch);
@@ -153,6 +183,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Sam\'s Arcade";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -175,6 +206,8 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn gamefileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.RadioButton radioPlain;
+        private System.Windows.Forms.RadioButton radioIcons;
     }
 }
 
