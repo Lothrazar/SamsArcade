@@ -16,5 +16,11 @@ namespace ArcadeDesktop
         {
             InitializeComponent();
         }
+
+
+
+        /*Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+    config.AppSettings.Settings.Add("YourKey", "YourValue");
+    config.Save(ConfigurationSaveMode.Minimal);*/
     }
 }
