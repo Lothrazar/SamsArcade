@@ -72,6 +72,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "GameReleaseGrid";
             this.Size = new System.Drawing.Size(441, 364);
+            this.Load += new System.EventHandler(this.GameReleaseGrid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
             this.ResumeLayout(false);

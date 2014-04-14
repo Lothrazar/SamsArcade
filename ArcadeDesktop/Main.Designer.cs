@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnLaunch = new System.Windows.Forms.Button();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gamefileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindGames = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +44,7 @@
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).BeginInit();
+            this.gameReleaseGrid = new ArcadeDesktop.GameReleaseGrid();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,36 +62,6 @@
             // ofd
             // 
             this.ofd.FileName = "openFileDialog1";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gamefileDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bindGames;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(466, 291);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // gamefileDataGridViewTextBoxColumn
-            // 
-            this.gamefileDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gamefileDataGridViewTextBoxColumn.DataPropertyName = "Gamefile";
-            this.gamefileDataGridViewTextBoxColumn.HeaderText = "Gamefile";
-            this.gamefileDataGridViewTextBoxColumn.Name = "gamefileDataGridViewTextBoxColumn";
-            this.gamefileDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindGames
-            // 
-            this.bindGames.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
             // 
             // menuStrip1
             // 
@@ -228,11 +193,19 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "TODO: data grid and image loader in diff controls. ";
             // 
+            // gameReleaseGrid
+            // 
+            this.gameReleaseGrid.Location = new System.Drawing.Point(12, 39);
+            this.gameReleaseGrid.Name = "gameReleaseGrid";
+            this.gameReleaseGrid.Size = new System.Drawing.Size(441, 280);
+            this.gameReleaseGrid.TabIndex = 16;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 613);
+            this.Controls.Add(this.gameReleaseGrid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtUrl);
@@ -240,15 +213,12 @@
             this.Controls.Add(this.radioIcons);
             this.Controls.Add(this.radioPlain);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Sam\'s Arcade";
             this.Load += new System.EventHandler(this.Main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindGames)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -261,15 +231,12 @@
 
         private System.Windows.Forms.Button btnLaunch;
         private System.Windows.Forms.OpenFileDialog ofd;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource bindGames;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gamefileDataGridViewTextBoxColumn;
         private System.Windows.Forms.RadioButton radioPlain;
         private System.Windows.Forms.RadioButton radioIcons;
         private System.Windows.Forms.Button btnImageFetch;
@@ -278,6 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGamesToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private GameReleaseGrid gameReleaseGrid;
     }
 }
 

@@ -22,29 +22,17 @@ namespace ArcadeDesktop
 
         public Main()
         {
-            InitializeComponent();
-
-            
-
-
-            dataGridView1.AutoGenerateColumns = true;
+            InitializeComponent(); 
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
-        {
-            if( dataGridView1.Rows.GetRowCount(DataGridViewElementStates.Selected) <= 0)
-            {
-                //no rows selected //TODO: maybe show a message
-                return;
-            }
-
-            var row = dataGridView1.SelectedRows[0].DataBoundItem as GameRelease;
+        { 
+            var row = gameReleaseGrid.GetSelectedRow();
 
             if (row == null) { return; }
 
             try
-            {
-
+            { 
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = Properties.Settings.Default.nes_emu;
                 startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.gamefile;
@@ -64,8 +52,7 @@ namespace ArcadeDesktop
 
         private void refreshRoms()
         {
-            GameReleaseList = new List<GameRelease>();
-
+            GameReleaseList = new List<GameRelease>(); 
             DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
             foreach (var file in d.GetFiles("*.nes"))
@@ -76,15 +63,9 @@ namespace ArcadeDesktop
                 GameReleaseList.Add(g);
             }
 
-            bindGames.DataSource = GameReleaseList;
-
-
-            if (GameReleaseList.Count == 0)
-            {
-                MessageBox.Show("No roms found in current folder.  Change rom folder in the Settings menu");
-            }
-
+            gameReleaseGrid.RefreshRoms(GameReleaseList);
         }
+    
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -126,9 +107,7 @@ namespace ArcadeDesktop
         {
             setDefaultView();
 
-            refreshRoms();
-
-
+            refreshRoms(); 
         }
 
         private void setDefaultView()
@@ -171,8 +150,7 @@ namespace ArcadeDesktop
             {
                 MessageBox.Show("Image not found.");
                 pictureBox1.Image = null;
-            }
-
+            } 
         }
 
         private static Image GetImageFromUrl(string url)
@@ -194,7 +172,7 @@ namespace ArcadeDesktop
 
         private void manageGamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+//TODO
         }
     }
 }
