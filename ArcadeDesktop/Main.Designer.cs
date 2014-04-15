@@ -32,24 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnLaunch = new System.Windows.Forms.Button();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.radioIsolated = new System.Windows.Forms.RadioButton();
-            this.radioEmbed = new System.Windows.Forms.RadioButton();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
-            this.menuStrip.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(344, 1);
+            this.btnLaunch.Location = new System.Drawing.Point(11, 3);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(127, 23);
             this.btnLaunch.TabIndex = 2;
@@ -61,73 +54,15 @@
             // 
             this.ofd.FileName = "openFileDialog1";
             // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.gamesToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(748, 24);
-            this.menuStrip.TabIndex = 8;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
-            this.aboutToolStripMenuItem,
-            this.quitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
-            // gamesToolStripMenuItem
-            // 
-            this.gamesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageGamesToolStripMenuItem});
-            this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
-            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.gamesToolStripMenuItem.Text = "Games";
-            // 
-            // manageGamesToolStripMenuItem
-            // 
-            this.manageGamesToolStripMenuItem.Name = "manageGamesToolStripMenuItem";
-            this.manageGamesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.manageGamesToolStripMenuItem.Text = "Manage Games";
-            this.manageGamesToolStripMenuItem.Click += new System.EventHandler(this.manageGamesToolStripMenuItem_Click);
-            // 
             // listView
             // 
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.LargeImageList = this.imageList;
-            this.listView.Location = new System.Drawing.Point(0, 24);
+            this.listView.Location = new System.Drawing.Point(0, 32);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(358, 579);
+            this.listView.Size = new System.Drawing.Size(358, 571);
             this.listView.SmallImageList = this.imageList;
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -142,34 +77,34 @@
             this.imageList.Images.SetKeyName(0, "NES-Cartridge.jpg");
             this.imageList.Images.SetKeyName(1, "snes_blank.jpg");
             // 
-            // radioIsolated
+            // btnSettings
             // 
-            this.radioIsolated.AutoSize = true;
-            this.radioIsolated.Checked = true;
-            this.radioIsolated.Location = new System.Drawing.Point(496, 6);
-            this.radioIsolated.Name = "radioIsolated";
-            this.radioIsolated.Size = new System.Drawing.Size(85, 17);
-            this.radioIsolated.TabIndex = 11;
-            this.radioIsolated.TabStop = true;
-            this.radioIsolated.Text = "Run Isolated";
-            this.radioIsolated.UseVisualStyleBackColor = true;
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Location = new System.Drawing.Point(660, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // radioEmbed
+            // panel1
             // 
-            this.radioEmbed.AutoSize = true;
-            this.radioEmbed.Location = new System.Drawing.Point(598, 6);
-            this.radioEmbed.Name = "radioEmbed";
-            this.radioEmbed.Size = new System.Drawing.Size(94, 17);
-            this.radioEmbed.TabIndex = 12;
-            this.radioEmbed.Text = "Run In Arcade";
-            this.radioEmbed.UseVisualStyleBackColor = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnSettings);
+            this.panel1.Controls.Add(this.btnLaunch);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(748, 32);
+            this.panel1.TabIndex = 12;
             // 
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gameReleaseForm.Location = new System.Drawing.Point(358, 24);
+            this.gameReleaseForm.Location = new System.Drawing.Point(358, 32);
             this.gameReleaseForm.Name = "gameReleaseForm";
-            this.gameReleaseForm.Size = new System.Drawing.Size(390, 579);
+            this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
             // 
             // Main
@@ -177,21 +112,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 603);
-            this.Controls.Add(this.radioEmbed);
-            this.Controls.Add(this.radioIsolated);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.gameReleaseForm);
-            this.Controls.Add(this.btnLaunch);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
+            this.Controls.Add(this.panel1);
             this.Name = "Main";
             this.Text = "Sam\'s Arcade";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -199,18 +128,11 @@
 
         private System.Windows.Forms.Button btnLaunch;
         private System.Windows.Forms.OpenFileDialog ofd;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageGamesToolStripMenuItem;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ImageList imageList;
         private Controls.GameReleaseForm gameReleaseForm;
-        private System.Windows.Forms.RadioButton radioIsolated;
-        private System.Windows.Forms.RadioButton radioEmbed;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

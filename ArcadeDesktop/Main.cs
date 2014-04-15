@@ -292,6 +292,11 @@ namespace ArcadeDesktop
             }
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            showSettingsWindow();
+        }
+
       
     }
 }
