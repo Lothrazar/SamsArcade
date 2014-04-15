@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using ArcadeDataLayer.Objects;
+using ArcadeDesktop.Forms;
 
 namespace ArcadeDesktop.Controls
 {
@@ -30,19 +31,23 @@ namespace ArcadeDesktop.Controls
         }
 
         private void btnImageFetch_Click(object sender, EventArgs e)
-        { 
-             var image = GetImageFromUrl(txtUrl.Text);
-             
-             if (image != null)
-             {
-                 pictureBox.Image = image;
+        {
+            var frm = new PromptUrl();
+            var result = frm.ShowDialog();
 
-                 sizeLabel.Text = image.Width + "x" + image.Height;
-             } 
+            if (result != DialogResult.OK) { return; }
+             
+            var image = GetImageFromUrl(frm.URL);
+             
+            if (image != null)
+            {
+                pictureBox.Image = image;
+
+                sizeLabel.Text = image.Width + "x" + image.Height;
+            } 
         }
 
-
-
+         
         private Image GetImageFromUrl(string url)
         {
             try
@@ -69,6 +74,17 @@ namespace ArcadeDesktop.Controls
 
             pictureBox.Image.Save(folder + game.Gamefile + ".png");
             this.ParentForm.Close();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("First, press 'Search the web', or find an image yourself.  Then copy the direct URL to the box below, and press 'Fetch'.  If this worked, the image will appear on the main screen.  If this is the image you want, press 'Download'");
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            System.Diagnostics.Process.Start("http://www.jabosoft.com/downloads/215");
         }
          
     }

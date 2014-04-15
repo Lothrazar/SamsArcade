@@ -81,6 +81,12 @@
     <Compile Include="Forms\ManageGames.Designer.cs">
       <DependentUpon>ManageGames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PromptUrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PromptUrl.Designer.cs">
+      <DependentUpon>PromptUrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageGames.resx">
       <DependentUpon>ManageGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PromptUrl.resx">
+      <DependentUpon>PromptUrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -165,6 +174,7 @@
     <None Include="Resources\image_link.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\help.png" />
     <Content Include="Resources\NES-Cartridge.jpg" />
     <Content Include="Resources\snes_blank.jpg" />
   </ItemGroup>
