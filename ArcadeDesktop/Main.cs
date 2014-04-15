@@ -75,32 +75,67 @@ namespace ArcadeDesktop
         */
         /// <summary>
         /// called by the button and by double click on an item
+        /// 
+        /// TODO: move outside form into an EXE helper
         /// </summary>
         /// <param name="rowText"></param>
         private   void LaunchGame(GameRelease game)
         {
             string exe = string.Empty;
-            switch(game.Extension)
-            {
-                case ".nes": exe = Properties.Settings.Default.nes_emu; break;
-               // case ".smc": exe = Properties.Settings.Default.nes_emu; break; 
-            }
-
-            if(exe == string.Empty)
-            { 
-                MessageBox.Show(String.Format("Software not set for game type {0}.  Check the Settings menu",game.Extension));
-                return;
-            }
+            string file = Properties.Settings.Default.nes_rom + @"\" + game.Gamefile;
+            ProcessStartInfo startInfo;
+            Process process;
 
             try
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = Properties.Settings.Default.nes_emu;
-                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + game.Gamefile;
-             //   startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-                
-                var process = Process.Start(startInfo);
+                switch(game.Extension)
+                {
+                    case ".nes": 
+                        exe = Properties.Settings.Default.nes_emu; 
+                    
+                    
+                    //so far most emus work (except fceux, that fails on many roms)
+                       //jnes, virtuanes, nestopia are all decent
+                        startInfo = new ProcessStartInfo();
+                        startInfo.FileName = exe; 
+                        startInfo.WorkingDirectory = Properties.Settings.Default.nes_rom + @"\";
+                         
 
+                        startInfo.Arguments = game.Gamefile;// file;
+
+                        process = Process.Start(startInfo);
+
+                         
+                    break;    case ".smc": 
+                        exe = Properties.Settings.Default.smc_emu; 
+                    
+                    
+                        startInfo = new ProcessStartInfo();
+                        startInfo.FileName = exe;
+                     //   startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+
+                        startInfo.WorkingDirectory = Properties.Settings.Default.nes_rom + @"\";
+                         
+                        //fullscreen and then the file
+
+                        //the fullscreen DOES work but leave it off for now
+                        startInfo.Arguments = "\""+ game.Gamefile+"\"";// file;
+
+                        process = Process.Start(startInfo);
+
+
+                    
+                    break;    default:
+                        MessageBox.Show(String.Format("Software not set for game type {0}.  Check the Settings menu", game.Extension));
+
+
+                    break;
+                }//end switch
+
+                if (exe == string.Empty)
+                {
+                    return;
+                }
 
 
                 #region failedFullScreen
@@ -121,11 +156,11 @@ namespace ArcadeDesktop
                      }
                    */
                 #endregion
-            }
-            catch (Exception)
+            }//end of try
+            catch (Exception e)
             {
-                MessageBox.Show("Cannot find emulator.  Link to the file in the Settings menu.");
-            }
+                MessageBox.Show("Cannot find emulator.  Link to the file in the Settings menu.  If this still does not work, try setting the emulator as the default program to open the files (snes9x needs this sometimes)");
+            } //"Cannot find emulator.  Link to the file in the Settings menu."
         
         
         }

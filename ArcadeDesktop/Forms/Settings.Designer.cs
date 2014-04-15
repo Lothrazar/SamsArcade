@@ -40,6 +40,9 @@
             this.btnImageFolder = new System.Windows.Forms.Button();
             this.btnSetNesFolder = new System.Windows.Forms.Button();
             this.btnSetNesEmu = new System.Windows.Forms.Button();
+            this.snesEmuText = new System.Windows.Forms.TextBox();
+            this.btnSetSNesEmu = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -166,6 +169,36 @@
             this.btnSetNesEmu.UseVisualStyleBackColor = true;
             this.btnSetNesEmu.Click += new System.EventHandler(this.SetNesEmu_Click);
             // 
+            // snesEmuText
+            // 
+            this.snesEmuText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.snesEmuText.Enabled = false;
+            this.snesEmuText.Location = new System.Drawing.Point(148, 218);
+            this.snesEmuText.Name = "snesEmuText";
+            this.snesEmuText.Size = new System.Drawing.Size(489, 20);
+            this.snesEmuText.TabIndex = 14;
+            // 
+            // btnSetSNesEmu
+            // 
+            this.btnSetSNesEmu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSetSNesEmu.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
+            this.btnSetSNesEmu.Location = new System.Drawing.Point(643, 215);
+            this.btnSetSNesEmu.Name = "btnSetSNesEmu";
+            this.btnSetSNesEmu.Size = new System.Drawing.Size(28, 23);
+            this.btnSetSNesEmu.TabIndex = 13;
+            this.btnSetSNesEmu.UseVisualStyleBackColor = true;
+            this.btnSetSNesEmu.Click += new System.EventHandler(this.btnSetSNesEmu_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 220);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Current SNES Emulator";
+            // 
             // Settings
             // 
             this.AcceptButton = this.btnSave;
@@ -173,6 +206,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(683, 360);
+            this.Controls.Add(this.snesEmuText);
+            this.Controls.Add(this.btnSetSNesEmu);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.imageText);
             this.Controls.Add(this.btnImageFolder);
             this.Controls.Add(this.label3);
@@ -212,5 +248,8 @@
         private System.Windows.Forms.TextBox imageText;
         private System.Windows.Forms.Button btnImageFolder;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox snesEmuText;
+        private System.Windows.Forms.Button btnSetSNesEmu;
+        private System.Windows.Forms.Label label4;
     }
 }
