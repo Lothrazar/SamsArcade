@@ -66,7 +66,7 @@
             this.gamesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(630, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(748, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,7 +125,7 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(381, 579);
+            this.listView.Size = new System.Drawing.Size(408, 579);
             this.listView.SmallImageList = this.imageList1;
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -141,16 +141,16 @@
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gameReleaseForm.Location = new System.Drawing.Point(381, 24);
+            this.gameReleaseForm.Location = new System.Drawing.Point(408, 24);
             this.gameReleaseForm.Name = "gameReleaseForm";
-            this.gameReleaseForm.Size = new System.Drawing.Size(249, 579);
+            this.gameReleaseForm.Size = new System.Drawing.Size(340, 579);
             this.gameReleaseForm.TabIndex = 10;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 603);
+            this.ClientSize = new System.Drawing.Size(748, 603);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.gameReleaseForm);
             this.Controls.Add(this.btnLaunch);
@@ -158,6 +158,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "Sam\'s Arcade";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

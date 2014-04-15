@@ -25,6 +25,26 @@ namespace ArcadeDesktop.Controls
             game = gr;
 
             bindGameRelease.DataSource = game;
+
+
+            tryFindImage(game);
+        }
+
+        private void tryFindImage(GameRelease game)
+        {
+            string folder = Properties.Settings.Default.nes_img + "\\";
+            string img = game.gamefile + ".png";
+            try
+            {
+                if(System.IO.File.Exists(folder+img))
+                    pictureBox.Image = Image.FromFile( folder+img );
+                else
+                    pictureBox.Image = null;
+            }
+            catch(Exception)
+            {
+                pictureBox.Image = null;
+            }
         }
 
 
