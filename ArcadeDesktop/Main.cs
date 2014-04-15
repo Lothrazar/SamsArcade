@@ -71,14 +71,16 @@ namespace ArcadeDesktop
                 g.gamefile = file.Name;
                 Program.GameReleaseList.Add(g);
             }
-
-          //  gameReleaseGrid.RefreshRoms(GameReleaseList);
+            ListViewItem item;
+             
+            //  gameReleaseGrid.RefreshRoms(GameReleaseList);
             foreach (var g in Program.GameReleaseList)
             {
-
-                listView.Items.Add(g.gamefile,0);
-            }
-
+                item = new ListViewItem(g.gamefile, 0);
+                item.Tag = g;
+                
+                listView.Items.Add(item);
+            } 
         }
     
 
@@ -136,7 +138,7 @@ namespace ArcadeDesktop
             var radio = (sender as RadioButton);
             if((sender as RadioButton).Checked)
             {
-                Properties.Settings.Default.view = radio.Tag.ToString();
+                Properties.Settings.Default.nes_img = radio.Tag.ToString();
 
                 Properties.Settings.Default.Save();
             }
@@ -152,25 +154,20 @@ namespace ArcadeDesktop
             this.Enabled = true;
         }
 
-        private void listView1_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
-        {
-            var test = e.Item.Name;
-
-           
-
-            MessageBox.Show(e.Item.Text, "ItemMouseHover Event");
-        }
+   
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             var row = getSelectedListViewItem();
             if (row == null)
             {
-                labelTest.Text = ""; //nothing selected
+                //TODO: how to get GameRelease object from text
+               // labelTest.Text = ""; //nothing selected
             }
             else
             {
-                labelTest.Text = row.Text;
+                imageDownloader.setGame(row.Tag as GameRelease);
+               // labelTest.Text = row.Text;
             }
         }
       

@@ -21,14 +21,31 @@ namespace ArcadeDesktop.Forms
 
         private void ManageGames_Load(object sender, EventArgs e)
         {
-            gameReleaseGrid1.RefreshRoms();
+            gameReleaseGrid.RefreshRoms();
         }
         private void btnImageFetch_Click(object sender, EventArgs e)
         {
+            var row = gameReleaseGrid.GetSelectedRow();
+            if (row == null) { return; }
 
+            
+            var image = GetImageFromUrl(txtUrl.Text) ;
+
+            if(image != null)
+            {
+                pictureBox1.Image = image;
+
+            }
+
+           // var folder = Properties.Settings.Default.nes_img + "\\";
+
+
+           // image.Save(folder + row.gamefile+".png");
         }
+ 
 
-        private static Image GetImageFromUrl(string url)
+
+        private   Image GetImageFromUrl(string url)
         {
             try
             {
@@ -44,5 +61,7 @@ namespace ArcadeDesktop.Forms
             }
             catch (Exception) { return null; }
         }
+
+        
     }
 }

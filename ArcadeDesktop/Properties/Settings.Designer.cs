@@ -49,13 +49,13 @@ namespace ArcadeDesktop.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("plain")]
-        public string view {
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\")]
+        public string nes_img {
             get {
-                return ((string)(this["view"]));
+                return ((string)(this["nes_img"]));
             }
             set {
-                this["view"] = value;
+                this["nes_img"] = value;
             }
         }
     }

@@ -41,13 +41,8 @@
             this.manageGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelTest = new System.Windows.Forms.Label();
+            this.imageDownloader = new ArcadeDesktop.Controls.ImageDownloader();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLaunch
@@ -71,7 +66,7 @@
             this.gamesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(833, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(899, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,7 +125,7 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(555, 507);
+            this.listView.Size = new System.Drawing.Size(555, 579);
             this.listView.SmallImageList = this.imageList1;
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -143,49 +138,20 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "NES-Cartridge.jpg");
             // 
-            // pictureBox1
+            // imageDownloader
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(16, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(244, 141);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.labelTest);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(561, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 504);
-            this.panel1.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 172);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "images (WIP)";
-            // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(42, 266);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 12;
-            this.labelTest.Text = "label2";
+            this.imageDownloader.Dock = System.Windows.Forms.DockStyle.Right;
+            this.imageDownloader.Location = new System.Drawing.Point(561, 24);
+            this.imageDownloader.Name = "imageDownloader";
+            this.imageDownloader.Size = new System.Drawing.Size(338, 579);
+            this.imageDownloader.TabIndex = 10;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 531);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(899, 603);
+            this.Controls.Add(this.imageDownloader);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.menuStrip1);
@@ -195,9 +161,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,10 +179,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageGamesToolStripMenuItem;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelTest;
+        private Controls.ImageDownloader imageDownloader;
     }
 }
 

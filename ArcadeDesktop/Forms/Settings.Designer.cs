@@ -31,19 +31,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nesEmuText = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnSetNesEmu = new System.Windows.Forms.Button();
             this.nesRomText = new System.Windows.Forms.TextBox();
-            this.btnSetNesFolder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
+            this.imageText = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnImageFolder = new System.Windows.Forms.Button();
+            this.btnSetNesFolder = new System.Windows.Forms.Button();
+            this.btnSetNesEmu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 17);
+            this.label1.Location = new System.Drawing.Point(14, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
             this.label1.TabIndex = 0;
@@ -54,76 +56,24 @@
             this.nesEmuText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nesEmuText.Enabled = false;
-            this.nesEmuText.Location = new System.Drawing.Point(148, 15);
+            this.nesEmuText.Location = new System.Drawing.Point(148, 192);
             this.nesEmuText.Name = "nesEmuText";
-            this.nesEmuText.Size = new System.Drawing.Size(327, 20);
+            this.nesEmuText.Size = new System.Drawing.Size(489, 20);
             this.nesEmuText.TabIndex = 3;
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Image = global::ArcadeDesktop.Properties.Resources.delete;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(15, 83);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(135, 29);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Close (without saving)";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Image = global::ArcadeDesktop.Properties.Resources.disk;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(409, 83);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 29);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save Settings";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnSetNesEmu
-            // 
-            this.btnSetNesEmu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetNesEmu.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
-            this.btnSetNesEmu.Location = new System.Drawing.Point(481, 12);
-            this.btnSetNesEmu.Name = "btnSetNesEmu";
-            this.btnSetNesEmu.Size = new System.Drawing.Size(28, 23);
-            this.btnSetNesEmu.TabIndex = 2;
-            this.btnSetNesEmu.UseVisualStyleBackColor = true;
-            this.btnSetNesEmu.Click += new System.EventHandler(this.SetNesEmu_Click);
-            // 
             // nesRomText
             // 
             this.nesRomText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nesRomText.Enabled = false;
-            this.nesRomText.Location = new System.Drawing.Point(148, 41);
+            this.nesRomText.Location = new System.Drawing.Point(148, 43);
             this.nesRomText.Name = "nesRomText";
-            this.nesRomText.Size = new System.Drawing.Size(327, 20);
+            this.nesRomText.Size = new System.Drawing.Size(489, 20);
             this.nesRomText.TabIndex = 8;
-            // 
-            // btnSetNesFolder
-            // 
-            this.btnSetNesFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetNesFolder.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
-            this.btnSetNesFolder.Location = new System.Drawing.Point(481, 38);
-            this.btnSetNesFolder.Name = "btnSetNesFolder";
-            this.btnSetNesFolder.Size = new System.Drawing.Size(28, 23);
-            this.btnSetNesFolder.TabIndex = 7;
-            this.btnSetNesFolder.UseVisualStyleBackColor = true;
-            this.btnSetNesFolder.Click += new System.EventHandler(this.btnSetNesFolder_Click);
             // 
             // label2
             // 
@@ -134,15 +84,87 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "NES ROM Folder";
             // 
-            // btnReset
+            // imageText
             // 
-            this.btnReset.Location = new System.Drawing.Point(185, 88);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 9;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.imageText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageText.Enabled = false;
+            this.imageText.Location = new System.Drawing.Point(148, 69);
+            this.imageText.Name = "imageText";
+            this.imageText.Size = new System.Drawing.Size(489, 20);
+            this.imageText.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Image Download Folder";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSave.Image = global::ArcadeDesktop.Properties.Resources.disk;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(571, 319);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 29);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save Settings";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Image = global::ArcadeDesktop.Properties.Resources.delete;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(15, 319);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(135, 29);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "Close (without saving)";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnImageFolder
+            // 
+            this.btnImageFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImageFolder.Image = global::ArcadeDesktop.Properties.Resources.folder_magnify;
+            this.btnImageFolder.Location = new System.Drawing.Point(643, 64);
+            this.btnImageFolder.Name = "btnImageFolder";
+            this.btnImageFolder.Size = new System.Drawing.Size(28, 23);
+            this.btnImageFolder.TabIndex = 10;
+            this.btnImageFolder.UseVisualStyleBackColor = true;
+            this.btnImageFolder.Click += new System.EventHandler(this.btnImageFolder_Click);
+            // 
+            // btnSetNesFolder
+            // 
+            this.btnSetNesFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSetNesFolder.Image = global::ArcadeDesktop.Properties.Resources.folder_magnify;
+            this.btnSetNesFolder.Location = new System.Drawing.Point(643, 38);
+            this.btnSetNesFolder.Name = "btnSetNesFolder";
+            this.btnSetNesFolder.Size = new System.Drawing.Size(28, 23);
+            this.btnSetNesFolder.TabIndex = 7;
+            this.btnSetNesFolder.UseVisualStyleBackColor = true;
+            this.btnSetNesFolder.Click += new System.EventHandler(this.btnSetNesFolder_Click);
+            // 
+            // btnSetNesEmu
+            // 
+            this.btnSetNesEmu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSetNesEmu.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
+            this.btnSetNesEmu.Location = new System.Drawing.Point(643, 189);
+            this.btnSetNesEmu.Name = "btnSetNesEmu";
+            this.btnSetNesEmu.Size = new System.Drawing.Size(28, 23);
+            this.btnSetNesEmu.TabIndex = 2;
+            this.btnSetNesEmu.UseVisualStyleBackColor = true;
+            this.btnSetNesEmu.Click += new System.EventHandler(this.SetNesEmu_Click);
             // 
             // Settings
             // 
@@ -150,8 +172,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(521, 124);
-            this.Controls.Add(this.btnReset);
+            this.ClientSize = new System.Drawing.Size(683, 360);
+            this.Controls.Add(this.imageText);
+            this.Controls.Add(this.btnImageFolder);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.nesRomText);
             this.Controls.Add(this.btnSetNesFolder);
             this.Controls.Add(this.label2);
@@ -185,6 +209,8 @@
         private System.Windows.Forms.TextBox nesRomText;
         private System.Windows.Forms.Button btnSetNesFolder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.TextBox imageText;
+        private System.Windows.Forms.Button btnImageFolder;
+        private System.Windows.Forms.Label label3;
     }
 }
