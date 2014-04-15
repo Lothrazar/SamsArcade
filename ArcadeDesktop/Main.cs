@@ -166,7 +166,8 @@ namespace ArcadeDesktop
             }
             else
             {
-                imageDownloader.setGame(row.Tag as GameRelease);
+                gameReleaseForm.setGame(row.Tag as GameRelease);
+            //    imageDownloader.setGame(row.Tag as GameRelease);
                // labelTest.Text = row.Text;
             }
         }

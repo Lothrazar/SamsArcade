@@ -41,7 +41,7 @@
             this.manageGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageDownloader = new ArcadeDesktop.Controls.ImageDownloader();
+            this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.gamesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(899, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(630, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,13 +119,13 @@
             // 
             // listView
             // 
-            this.listView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.LargeImageList = this.imageList1;
             this.listView.Location = new System.Drawing.Point(0, 24);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(555, 579);
+            this.listView.Size = new System.Drawing.Size(381, 579);
             this.listView.SmallImageList = this.imageList1;
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
@@ -138,21 +138,21 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "NES-Cartridge.jpg");
             // 
-            // imageDownloader
+            // gameReleaseForm
             // 
-            this.imageDownloader.Dock = System.Windows.Forms.DockStyle.Right;
-            this.imageDownloader.Location = new System.Drawing.Point(561, 24);
-            this.imageDownloader.Name = "imageDownloader";
-            this.imageDownloader.Size = new System.Drawing.Size(338, 579);
-            this.imageDownloader.TabIndex = 10;
+            this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gameReleaseForm.Location = new System.Drawing.Point(381, 24);
+            this.gameReleaseForm.Name = "gameReleaseForm";
+            this.gameReleaseForm.Size = new System.Drawing.Size(249, 579);
+            this.gameReleaseForm.TabIndex = 10;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 603);
-            this.Controls.Add(this.imageDownloader);
+            this.ClientSize = new System.Drawing.Size(630, 603);
             this.Controls.Add(this.listView);
+            this.Controls.Add(this.gameReleaseForm);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -179,7 +179,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageGamesToolStripMenuItem;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ImageList imageList1;
-        private Controls.ImageDownloader imageDownloader;
+        private Controls.GameReleaseForm gameReleaseForm;
     }
 }
 
