@@ -43,6 +43,8 @@
             this.snesEmuText = new System.Windows.Forms.TextBox();
             this.btnSetSNesEmu = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.linkSNES = new System.Windows.Forms.LinkLabel();
+            this.linkNES = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -199,6 +201,28 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Current SNES Emulator";
             // 
+            // linkSNES
+            // 
+            this.linkSNES.AutoSize = true;
+            this.linkSNES.Location = new System.Drawing.Point(187, 267);
+            this.linkSNES.Name = "linkSNES";
+            this.linkSNES.Size = new System.Drawing.Size(134, 13);
+            this.linkSNES.TabIndex = 15;
+            this.linkSNES.TabStop = true;
+            this.linkSNES.Text = "Suggested SNES Emulator";
+            this.linkSNES.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSNES_LinkClicked);
+            // 
+            // linkNES
+            // 
+            this.linkNES.AutoSize = true;
+            this.linkNES.Location = new System.Drawing.Point(190, 284);
+            this.linkNES.Name = "linkNES";
+            this.linkNES.Size = new System.Drawing.Size(127, 13);
+            this.linkNES.TabIndex = 16;
+            this.linkNES.TabStop = true;
+            this.linkNES.Text = "Suggested NES Emulator";
+            this.linkNES.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkNES_LinkClicked);
+            // 
             // Settings
             // 
             this.AcceptButton = this.btnSave;
@@ -206,6 +230,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(683, 360);
+            this.Controls.Add(this.linkNES);
+            this.Controls.Add(this.linkSNES);
             this.Controls.Add(this.snesEmuText);
             this.Controls.Add(this.btnSetSNesEmu);
             this.Controls.Add(this.label4);
@@ -251,5 +277,7 @@
         private System.Windows.Forms.TextBox snesEmuText;
         private System.Windows.Forms.Button btnSetSNesEmu;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkSNES;
+        private System.Windows.Forms.LinkLabel linkNES;
     }
 }

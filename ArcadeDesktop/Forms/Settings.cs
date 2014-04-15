@@ -103,6 +103,17 @@ namespace ArcadeDesktop
             saveSettingsConfig();
         }
 
+        private void linkSNES_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //TODO: maybe direct and indrect versions http://www.snes9x.com/phpbb3/viewtopic.php?f=6&t=12722
+            System.Diagnostics.Process.Start("http://www.s9x-w32.de/dl/testbuilds/snes9x_testbuild_22032014.zip");
+        }
+
+        private void linkNES_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.jabosoft.com/downloads/215");
+        }
+
         
     }
 }
