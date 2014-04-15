@@ -35,22 +35,35 @@ namespace ArcadeDesktop
             return row;
         }
 
+        public GameRelease getSelectedGame()
+        {
+            if (listView == null || listView.SelectedItems.Count == 0) { return null; }
+
+            var row = listView.SelectedItems[0];
+
+            return row.Tag as GameRelease;
+        }
+
         private void btnLaunch_Click(object sender, EventArgs e)
         {
+            LaunchGame(getSelectedGame());
+            /*
             var row = getSelectedListViewItem();
              
             if (row != null)
             {
                 LaunchGameByName(row.Text);
-            }
+            }*/
         }
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            var row = getSelectedListViewItem();
-            if (row != null)
-            {
-                LaunchGameByName(row.Text);
-            }
+            LaunchGame(getSelectedGame());
+
+            //var row = getSelectedListViewItem();
+            //if (row != null)
+            //{
+            //    LaunchGameByName(row.Text);
+            //}
         }
        /* [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
@@ -64,33 +77,50 @@ namespace ArcadeDesktop
         /// called by the button and by double click on an item
         /// </summary>
         /// <param name="rowText"></param>
-        private   void LaunchGameByName(string rowText)
+        private   void LaunchGame(GameRelease game)
         {
-      
+            string exe = string.Empty;
+            switch(game.Extension)
+            {
+                case ".nes": exe = Properties.Settings.Default.nes_emu; break;
+               // case ".smc": exe = Properties.Settings.Default.nes_emu; break; 
+            }
+
+            if(exe == string.Empty)
+            { 
+                MessageBox.Show(String.Format("Software not set for game type {0}.  Check the Settings menu",game.Extension));
+                return;
+            }
+
             try
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = Properties.Settings.Default.nes_emu;
-                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + rowText;
+                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + game.Gamefile;
              //   startInfo.WindowStyle = ProcessWindowStyle.Maximized;
                 
                 var process = Process.Start(startInfo);
-/*trying to force it full screen, its not working
+
+
+
+                #region failedFullScreen
+                /*trying to force it full screen, its not working
                 if (process.WaitForInputIdle(15000))//, SetWindowPosFlags.SWP_SHOWWINDOW
                     SetWindowPos(process.MainWindowHandle, this.Handle, 10, 10,this.Width, this.Height,0x0040);
                 */
 
-             /*   //try to send alt enter ,. this also didnt work for me
-                if (process.WaitForInputIdle(15000)) 
-                {
-                    //http://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys.send.aspx
-                    SetForegroundWindow(process.Handle); 
-                    SendKeys.Send("%({ENTER})");
-                   // SendKeys.Flush();
+                /*   //try to send alt enter ,. this also didnt work for me
+                   if (process.WaitForInputIdle(15000)) 
+                   {
+                       //http://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys.send.aspx
+                       SetForegroundWindow(process.Handle); 
+                       SendKeys.Send("%({ENTER})");
+                      // SendKeys.Flush();
                      
 
-                  }
-                */
+                     }
+                   */
+                #endregion
             }
             catch (Exception)
             {

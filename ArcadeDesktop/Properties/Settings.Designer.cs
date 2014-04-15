@@ -58,5 +58,17 @@ namespace ArcadeDesktop.Properties {
                 this["nes_img"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string smc_emu {
+            get {
+                return ((string)(this["smc_emu"]));
+            }
+            set {
+                this["smc_emu"] = value;
+            }
+        }
     }
 }
