@@ -27,15 +27,18 @@ namespace ArcadeDesktop
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            GameRelease row = null;// gameReleaseGrid.GetSelectedRow();
+            //  GameRelease row = null;// gameReleaseGrid.GetSelectedRow();
+            if (listView1 == null || listView1.SelectedItems.Count == 0) { return; }
 
+            var row = listView1.SelectedItems[0];
+             
             if (row == null) { return; }
 
             try
             { 
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = Properties.Settings.Default.nes_emu;
-                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.gamefile;
+                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.Text;
                 Process.Start(startInfo);
 
             }
@@ -64,6 +67,12 @@ namespace ArcadeDesktop
             }
 
           //  gameReleaseGrid.RefreshRoms(GameReleaseList);
+            foreach (var g in Program.GameReleaseList)
+            {
+
+                listView1.Items.Add(g.gamefile,0);
+            }
+
         }
     
 
