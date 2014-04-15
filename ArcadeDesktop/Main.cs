@@ -13,6 +13,7 @@ using ArcadeDataLayer;
 using ArcadeDataLayer.Objects;
 using System.Net;
 using ArcadeDesktop.Forms;
+using System.Runtime.InteropServices;
 
 namespace ArcadeDesktop
 {
@@ -37,21 +38,66 @@ namespace ArcadeDesktop
         private void btnLaunch_Click(object sender, EventArgs e)
         {
             var row = getSelectedListViewItem();
-
-            if (row == null) { return ; }
-
+             
+            if (row != null)
+            {
+                LaunchGameByName(row.Text);
+            }
+        }
+        private void listView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var row = getSelectedListViewItem();
+            if (row != null)
+            {
+                LaunchGameByName(row.Text);
+            }
+        }
+       /* [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+        */
+       /* [DllImport("user32.dll")]
+        private extern static bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
+        */
+        /// <summary>
+        /// called by the button and by double click on an item
+        /// </summary>
+        /// <param name="rowText"></param>
+        private   void LaunchGameByName(string rowText)
+        {
+      
             try
-            { 
+            {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = Properties.Settings.Default.nes_emu;
-                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + row.Text;
-                Process.Start(startInfo);
+                startInfo.Arguments = Properties.Settings.Default.nes_rom + @"\" + rowText;
+             //   startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                
+                var process = Process.Start(startInfo);
+/*trying to force it full screen, its not working
+                if (process.WaitForInputIdle(15000))//, SetWindowPosFlags.SWP_SHOWWINDOW
+                    SetWindowPos(process.MainWindowHandle, this.Handle, 10, 10,this.Width, this.Height,0x0040);
+                */
 
+             /*   //try to send alt enter ,. this also didnt work for me
+                if (process.WaitForInputIdle(15000)) 
+                {
+                    //http://msdn.microsoft.com/en-us/library/system.windows.forms.sendkeys.send.aspx
+                    SetForegroundWindow(process.Handle); 
+                    SendKeys.Send("%({ENTER})");
+                   // SendKeys.Flush();
+                     
+
+                  }
+                */
             }
-            catch(Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Cannot find emulator.  Link to the file in the Settings menu.");
             }
+        
+        
         }
          
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -171,6 +217,7 @@ namespace ArcadeDesktop
                // labelTest.Text = row.Text;
             }
         }
+
       
     }
 }

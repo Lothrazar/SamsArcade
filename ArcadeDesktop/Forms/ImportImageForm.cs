@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArcadeDataLayer.Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,11 @@ namespace ArcadeDesktop.Forms
         {
             InitializeComponent();
         }
+         
+        public void setGame(GameRelease game)
+        {
+            imageDownloader.setGame(game);
+        }
+
     }
 }

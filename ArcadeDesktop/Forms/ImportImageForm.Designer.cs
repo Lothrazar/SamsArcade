@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imageDownloader1 = new ArcadeDesktop.Controls.ImageDownloader();
+            this.imageDownloader = new ArcadeDesktop.Controls.ImageDownloader();
             this.SuspendLayout();
             // 
-            // imageDownloader1
+            // imageDownloader
             // 
-            this.imageDownloader1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageDownloader1.Location = new System.Drawing.Point(0, 0);
-            this.imageDownloader1.Name = "imageDownloader1";
-            this.imageDownloader1.Size = new System.Drawing.Size(499, 606);
-            this.imageDownloader1.TabIndex = 0;
+            this.imageDownloader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageDownloader.Location = new System.Drawing.Point(0, 0);
+            this.imageDownloader.Name = "imageDownloader";
+            this.imageDownloader.Size = new System.Drawing.Size(499, 606);
+            this.imageDownloader.TabIndex = 0;
             // 
             // ImportImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 606);
-            this.Controls.Add(this.imageDownloader1);
+            this.Controls.Add(this.imageDownloader);
             this.Name = "ImportImageForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ImportImageForm";
             this.ResumeLayout(false);
 
@@ -53,6 +55,6 @@
 
         #endregion
 
-        private Controls.ImageDownloader imageDownloader1;
+        private Controls.ImageDownloader imageDownloader;
     }
 }

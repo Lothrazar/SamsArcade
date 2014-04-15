@@ -41,6 +41,8 @@
             this.manageGamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.radioIsolated = new System.Windows.Forms.RadioButton();
+            this.radioEmbed = new System.Windows.Forms.RadioButton();
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -125,12 +127,13 @@
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(408, 579);
+            this.listView.Size = new System.Drawing.Size(358, 579);
             this.listView.SmallImageList = this.imageList1;
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Tile;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_MouseDoubleClick);
             // 
             // imageList1
             // 
@@ -138,12 +141,34 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "NES-Cartridge.jpg");
             // 
+            // radioIsolated
+            // 
+            this.radioIsolated.AutoSize = true;
+            this.radioIsolated.Checked = true;
+            this.radioIsolated.Location = new System.Drawing.Point(496, 6);
+            this.radioIsolated.Name = "radioIsolated";
+            this.radioIsolated.Size = new System.Drawing.Size(85, 17);
+            this.radioIsolated.TabIndex = 11;
+            this.radioIsolated.TabStop = true;
+            this.radioIsolated.Text = "Run Isolated";
+            this.radioIsolated.UseVisualStyleBackColor = true;
+            // 
+            // radioEmbed
+            // 
+            this.radioEmbed.AutoSize = true;
+            this.radioEmbed.Location = new System.Drawing.Point(598, 6);
+            this.radioEmbed.Name = "radioEmbed";
+            this.radioEmbed.Size = new System.Drawing.Size(94, 17);
+            this.radioEmbed.TabIndex = 12;
+            this.radioEmbed.Text = "Run In Arcade";
+            this.radioEmbed.UseVisualStyleBackColor = true;
+            // 
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gameReleaseForm.Location = new System.Drawing.Point(408, 24);
+            this.gameReleaseForm.Location = new System.Drawing.Point(358, 24);
             this.gameReleaseForm.Name = "gameReleaseForm";
-            this.gameReleaseForm.Size = new System.Drawing.Size(340, 579);
+            this.gameReleaseForm.Size = new System.Drawing.Size(390, 579);
             this.gameReleaseForm.TabIndex = 10;
             // 
             // Main
@@ -151,6 +176,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 603);
+            this.Controls.Add(this.radioEmbed);
+            this.Controls.Add(this.radioIsolated);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.gameReleaseForm);
             this.Controls.Add(this.btnLaunch);
@@ -181,6 +208,8 @@
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ImageList imageList1;
         private Controls.GameReleaseForm gameReleaseForm;
+        private System.Windows.Forms.RadioButton radioIsolated;
+        private System.Windows.Forms.RadioButton radioEmbed;
     }
 }
 

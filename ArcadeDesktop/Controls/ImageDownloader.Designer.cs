@@ -33,11 +33,11 @@
             this.btnImageFetch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.sizeLabel = new System.Windows.Forms.Label();
             this.bindGameRelease = new System.Windows.Forms.BindingSource(this.components);
             this.gameLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.sizeLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -73,8 +73,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.sizeLabel);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.gameLabel);
             this.panel1.Controls.Add(this.btnImageFetch);
             this.panel1.Controls.Add(this.btnSave);
@@ -85,15 +85,14 @@
             this.panel1.Size = new System.Drawing.Size(653, 100);
             this.panel1.TabIndex = 23;
             // 
-            // label1
+            // sizeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindGameRelease, "Gamefile", true));
-            this.label1.Location = new System.Drawing.Point(83, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = " ";
+            this.sizeLabel.AutoSize = true;
+            this.sizeLabel.Location = new System.Drawing.Point(300, 22);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(10, 13);
+            this.sizeLabel.TabIndex = 25;
+            this.sizeLabel.Text = " ";
             // 
             // bindGameRelease
             // 
@@ -117,14 +116,15 @@
             this.pictureBox.TabIndex = 21;
             this.pictureBox.TabStop = false;
             // 
-            // sizeLabel
+            // label2
             // 
-            this.sizeLabel.AutoSize = true;
-            this.sizeLabel.Location = new System.Drawing.Point(300, 22);
-            this.sizeLabel.Name = "sizeLabel";
-            this.sizeLabel.Size = new System.Drawing.Size(10, 13);
-            this.sizeLabel.TabIndex = 25;
-            this.sizeLabel.Text = " ";
+            this.label2.AutoSize = true;
+            this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindGameRelease, "Gamefile", true));
+            this.label2.Location = new System.Drawing.Point(61, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = " ";
             // 
             // ImageDownloader
             // 
@@ -150,8 +150,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingSource bindGameRelease;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label gameLabel;
         private System.Windows.Forms.Label sizeLabel;
+        private System.Windows.Forms.Label label2;
     }
 }
