@@ -14,7 +14,7 @@ using ArcadeDataLayer.Objects;
 using System.Net;
 using ArcadeDesktop.Forms;
 using System.Runtime.InteropServices;
-
+using System.Linq;
 namespace ArcadeDesktop
 {
     public partial class Main : Form
@@ -107,10 +107,12 @@ namespace ArcadeDesktop
 
         private void refreshRoms()
         {
-            Program.GameReleaseList = new List<GameRelease>(); 
-            DirectoryInfo d = new DirectoryInfo(Properties.Settings.Default.nes_rom);
+            Program.GameReleaseList = new List<GameRelease>();
+            DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
-            foreach (var file in d.GetFiles("*.nes"))
+            var extensions = new[] { "*.nes", "*.smc" };
+            var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
+            foreach (var file in files)
             {
                 var g = new GameRelease();
 
