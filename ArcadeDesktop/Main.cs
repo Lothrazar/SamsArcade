@@ -17,22 +17,28 @@ using ArcadeDesktop.Forms;
 namespace ArcadeDesktop
 {
     public partial class Main : Form
-    {
-
-
+    { 
         public Main()
         {
             InitializeComponent(); 
         }
 
+        public ListViewItem getSelectedListViewItem()
+        {
+            if (listView == null || listView.SelectedItems.Count == 0) { return null; }
+
+            var row = listView.SelectedItems[0];
+
+            if (row == null) { return null; }
+
+            return row;
+        }
+
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            //  GameRelease row = null;// gameReleaseGrid.GetSelectedRow();
-            if (listView1 == null || listView1.SelectedItems.Count == 0) { return; }
+            var row = getSelectedListViewItem();
 
-            var row = listView1.SelectedItems[0];
-             
-            if (row == null) { return; }
+            if (row == null) { return ; }
 
             try
             { 
@@ -70,7 +76,7 @@ namespace ArcadeDesktop
             foreach (var g in Program.GameReleaseList)
             {
 
-                listView1.Items.Add(g.gamefile,0);
+                listView.Items.Add(g.gamefile,0);
             }
 
         }
@@ -144,6 +150,28 @@ namespace ArcadeDesktop
             var frm = new ManageGames();
             frm.ShowDialog();
             this.Enabled = true;
+        }
+
+        private void listView1_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
+        {
+            var test = e.Item.Name;
+
+           
+
+            MessageBox.Show(e.Item.Text, "ItemMouseHover Event");
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var row = getSelectedListViewItem();
+            if (row == null)
+            {
+                labelTest.Text = ""; //nothing selected
+            }
+            else
+            {
+                labelTest.Text = row.Text;
+            }
         }
       
     }

@@ -28,19 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gameReleaseGrid1 = new ArcadeDesktop.GameReleaseGrid();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.btnImageFetch = new System.Windows.Forms.Button();
+            this.gameReleaseGrid1 = new ArcadeDesktop.GameReleaseGrid();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gameReleaseGrid1
-            // 
-            this.gameReleaseGrid1.Location = new System.Drawing.Point(47, 12);
-            this.gameReleaseGrid1.Name = "gameReleaseGrid1";
-            this.gameReleaseGrid1.Size = new System.Drawing.Size(441, 364);
-            this.gameReleaseGrid1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -66,6 +59,13 @@
             this.btnImageFetch.Text = "Fetch Image from URL";
             this.btnImageFetch.UseVisualStyleBackColor = true;
             // 
+            // gameReleaseGrid1
+            // 
+            this.gameReleaseGrid1.Location = new System.Drawing.Point(47, 12);
+            this.gameReleaseGrid1.Name = "gameReleaseGrid1";
+            this.gameReleaseGrid1.Size = new System.Drawing.Size(441, 364);
+            this.gameReleaseGrid1.TabIndex = 0;
+            // 
             // ManageGames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -76,6 +76,7 @@
             this.Controls.Add(this.btnImageFetch);
             this.Controls.Add(this.gameReleaseGrid1);
             this.Name = "ManageGames";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ManageGames";
             this.Load += new System.EventHandler(this.ManageGames_Load);
