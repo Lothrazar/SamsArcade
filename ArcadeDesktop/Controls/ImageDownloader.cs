@@ -67,7 +67,7 @@ namespace ArcadeDesktop.Controls
 
             var folder = Properties.Settings.Default.nes_img + "\\";
 
-            pictureBox.Image.Save(folder + game.gamefile + ".png");
+            pictureBox.Image.Save(folder + game.Gamefile + ".png");
             this.ParentForm.Close();
         }
          

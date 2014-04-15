@@ -9,14 +9,17 @@ namespace ArcadeDataLayer.Objects
     public class GameRelease
     {
         public GameRelease() { }
-        public Game game;
-        public int year;
-        public string gamefile;
+        private Game game;
+        private int year;
+        private string file;
+        private string file_ext; 
+        private string region;
+        private string system;
+        private bool isFirst;
+        private List<GameReleaseImage> images;
 
-        public string Gamefile { get { return gamefile; }  }
-        public string region;
-        public string system;
-        public bool isFirst;
-        public List<GameReleaseImage> images;
+
+        public string Gamefile { get { return file; } set { file = value; } }
+        public string Extension { get { return file_ext; } set { file_ext = value; } }
     }
 }

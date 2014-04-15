@@ -34,7 +34,7 @@ namespace ArcadeDesktop.Controls
         private void tryFindImage(GameRelease game)
         {
             string folder = Properties.Settings.Default.nes_img + "\\";
-            string img = game.gamefile + ".png";//image file names are not stored right now
+            string img = game.Gamefile + ".png";//image file names are not stored right now
             //we just rename them on download to match the game file
             try
             {

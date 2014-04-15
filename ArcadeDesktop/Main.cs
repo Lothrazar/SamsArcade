@@ -110,13 +110,19 @@ namespace ArcadeDesktop
             Program.GameReleaseList = new List<GameRelease>();
             DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
+            int INES = 0;
+            int ISNES = 1;
+
+            //TODO: list or enumeration in data layer for these extensions
             var extensions = new[] { "*.nes", "*.smc" };
             var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
             foreach (var file in files)
             {
                 var g = new GameRelease();
 
-                g.gamefile = file.Name;
+                g.Gamefile = file.Name;
+                g.Extension = file.Extension;
+
                 Program.GameReleaseList.Add(g);
             }
             ListViewItem item;
@@ -124,7 +130,8 @@ namespace ArcadeDesktop
             //  gameReleaseGrid.RefreshRoms(GameReleaseList);
             foreach (var g in Program.GameReleaseList)
             {
-                item = new ListViewItem(g.gamefile, 0);
+                int imageIndex = g.Extension == ".nes" ? INES : ISNES;
+                item = new ListViewItem(g.Gamefile, imageIndex);
                 item.Tag = g;
                 
                 listView.Items.Add(item);
