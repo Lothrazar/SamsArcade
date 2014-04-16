@@ -1,28 +1,25 @@
-﻿using System;
+﻿using ArcadeDataLayer.Objects;
+using ArcadeDesktop.Forms;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ArcadeDataLayer;
-using ArcadeDataLayer.Objects;
-using System.Net;
-using ArcadeDesktop.Forms;
-using System.Runtime.InteropServices;
-using System.Linq;
 namespace ArcadeDesktop
 {
     public partial class Main : Form
     { 
         public Main()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+
+            filter = new GameFilter();
+
+            bindFilter.DataSource = filter;
         }
+
+        public GameFilter filter;
 
         public ListViewItem getSelectedListViewItem()
         {
@@ -173,13 +170,17 @@ namespace ArcadeDesktop
         private void refreshRoms()
         {
             Program.GameReleaseList = new List<GameRelease>();
+            listView.Items.Clear();
+
             DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.nes_rom);
 
             int INES = 0;
             int ISNES = 1;
+             
 
-            //TODO: list or enumeration in data layer for these extensions
-            var extensions = new[] { "*.nes", "*.smc" };
+            
+            //filter by the bound checkboxes using file extensions
+            var extensions = filter.visibleExtensions();
             var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
             foreach (var file in files)
             {
@@ -273,22 +274,13 @@ namespace ArcadeDesktop
             frm.ShowDialog();
             this.Enabled = true;
         }
-
-   
-
+         
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
             var row = getSelectedListViewItem();
-            if (row == null)
-            {
-                //TODO: how to get GameRelease object from text
-               // labelTest.Text = ""; //nothing selected
-            }
-            else
-            {
-                gameReleaseForm.setGame(row.Tag as GameRelease);
-            //    imageDownloader.setGame(row.Tag as GameRelease);
-               // labelTest.Text = row.Text;
+            if (row != null)
+            { 
+                gameReleaseForm.setGame(row.Tag as GameRelease); 
             }
         }
 
@@ -296,7 +288,16 @@ namespace ArcadeDesktop
         {
             showSettingsWindow();
         }
-
-      
+ 
+        /// <summary>
+        /// on the binding source, not on the control itself
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bindFilter_CurrentItemChanged(object sender, EventArgs e)
+        {
+            refreshRoms();
+        }
+  
     }
 }

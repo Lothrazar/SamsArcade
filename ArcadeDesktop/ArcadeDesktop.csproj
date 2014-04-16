@@ -87,6 +87,7 @@
     <Compile Include="Forms\PromptUrl.Designer.cs">
       <DependentUpon>PromptUrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameFilter.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +137,7 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ArcadeDataLayer.Objects.GameRelease.datasource" />
+    <None Include="GameFilter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
