@@ -86,6 +86,22 @@ namespace ArcadeDesktop.Controls
 
             System.Diagnostics.Process.Start("http://www.jabosoft.com/downloads/215");
         }
+
+        private void btnImageSelect_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+
+                var f = openFileDialog.FileName;
+
+                pictureBox.Image = System.Drawing.Image.FromFile(f);
+
+                 
+            }
+
+        }
          
     }
 }

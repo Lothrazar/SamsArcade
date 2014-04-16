@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnLaunch = new System.Windows.Forms.Button();
-            this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.btnSettings = new System.Windows.Forms.Button();
@@ -49,10 +48,6 @@
             this.btnLaunch.Text = "Launch";
             this.btnLaunch.UseVisualStyleBackColor = true;
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
-            // 
-            // ofd
-            // 
-            this.ofd.FileName = "openFileDialog1";
             // 
             // listView
             // 
@@ -127,7 +122,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnLaunch;
-        private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ImageList imageList;
         private Controls.GameReleaseForm gameReleaseForm;
