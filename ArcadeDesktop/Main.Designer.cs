@@ -34,17 +34,17 @@
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.checkSNES = new System.Windows.Forms.CheckBox();
             this.checkGB = new System.Windows.Forms.CheckBox();
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboStartsWith = new System.Windows.Forms.ComboBox();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
+            this.startsWith = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
@@ -96,10 +96,38 @@
             this.panel1.Size = new System.Drawing.Size(733, 32);
             this.panel1.TabIndex = 12;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.Image = global::ArcadeDesktop.Properties.Resources.help;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(573, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(66, 23);
+            this.btnHelp.TabIndex = 12;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Image = global::ArcadeDesktop.Properties.Resources.wrench;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(645, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.comboStartsWith);
+            this.panel2.Controls.Add(this.startsWith);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.checkSNES);
             this.panel2.Controls.Add(this.checkGB);
@@ -110,6 +138,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(84, 571);
             this.panel2.TabIndex = 13;
+            // 
+            // bindFilter
+            // 
+            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
+            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Starts With";
             // 
             // checkSNES
             // 
@@ -163,97 +206,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Filters";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Starts With";
-            // 
-            // comboStartsWith
-            // 
-            this.comboStartsWith.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindFilter, "StartsWith", true));
-            this.comboStartsWith.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboStartsWith.FormattingEnabled = true;
-            this.comboStartsWith.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9"});
-            this.comboStartsWith.Location = new System.Drawing.Point(39, 129);
-            this.comboStartsWith.MaxLength = 1;
-            this.comboStartsWith.Name = "comboStartsWith";
-            this.comboStartsWith.Size = new System.Drawing.Size(34, 21);
-            this.comboStartsWith.TabIndex = 6;
-            this.comboStartsWith.SelectedValueChanged += new System.EventHandler(this.comboStartsWith_SelectedValueChanged);
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Image = global::ArcadeDesktop.Properties.Resources.help;
-            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(573, 3);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(66, 23);
-            this.btnHelp.TabIndex = 12;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHelp.UseVisualStyleBackColor = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Image = global::ArcadeDesktop.Properties.Resources.wrench;
-            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(645, 3);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 23);
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // bindFilter
-            // 
-            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
-            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
-            // 
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
@@ -261,6 +213,14 @@
             this.gameReleaseForm.Name = "gameReleaseForm";
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
+            // 
+            // startsWith
+            // 
+            this.startsWith.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.startsWith.Location = new System.Drawing.Point(13, 140);
+            this.startsWith.Name = "startsWith";
+            this.startsWith.Size = new System.Drawing.Size(51, 20);
+            this.startsWith.TabIndex = 5;
             // 
             // Main
             // 
@@ -297,9 +257,9 @@
         private System.Windows.Forms.CheckBox checkSNES;
         private System.Windows.Forms.CheckBox checkGB;
         private System.Windows.Forms.CheckBox checkNes;
-        private System.Windows.Forms.ComboBox comboStartsWith;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.TextBox startsWith;
     }
 }
 

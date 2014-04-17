@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.textBoxGame = new System.Windows.Forms.TextBox();
+            this.bindGameRelease = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.textBoxImageLoc = new System.Windows.Forms.TextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.btnDownload = new System.Windows.Forms.Button();
-            this.bindGameRelease = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxGame
@@ -46,8 +46,12 @@
             this.textBoxGame.Enabled = false;
             this.textBoxGame.Location = new System.Drawing.Point(3, 6);
             this.textBoxGame.Name = "textBoxGame";
-            this.textBoxGame.Size = new System.Drawing.Size(314, 20);
+            this.textBoxGame.Size = new System.Drawing.Size(433, 20);
             this.textBoxGame.TabIndex = 0;
+            // 
+            // bindGameRelease
+            // 
+            this.bindGameRelease.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
             // 
             // panel1
             // 
@@ -60,12 +64,25 @@
             this.panel1.Size = new System.Drawing.Size(439, 100);
             this.panel1.TabIndex = 2;
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Image = global::ArcadeDesktop.Properties.Resources.image_link;
+            this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownload.Location = new System.Drawing.Point(3, 58);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(163, 22);
+            this.btnDownload.TabIndex = 8;
+            this.btnDownload.Text = "Add or Change Image";
+            this.btnDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // textBoxImageLoc
             // 
             this.textBoxImageLoc.Enabled = false;
             this.textBoxImageLoc.Location = new System.Drawing.Point(3, 32);
             this.textBoxImageLoc.Name = "textBoxImageLoc";
-            this.textBoxImageLoc.Size = new System.Drawing.Size(314, 20);
+            this.textBoxImageLoc.Size = new System.Drawing.Size(433, 20);
             this.textBoxImageLoc.TabIndex = 1;
             // 
             // pictureBox
@@ -79,23 +96,6 @@
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
-            // btnDownload
-            // 
-            this.btnDownload.Image = global::ArcadeDesktop.Properties.Resources.image_link;
-            this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownload.Location = new System.Drawing.Point(3, 58);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(104, 22);
-            this.btnDownload.TabIndex = 8;
-            this.btnDownload.Text = "Download New Image";
-            this.btnDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // bindGameRelease
-            // 
-            this.bindGameRelease.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
-            // 
             // GameReleaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,10 +104,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "GameReleaseForm";
             this.Size = new System.Drawing.Size(439, 494);
+            ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).EndInit();
             this.ResumeLayout(false);
 
         }

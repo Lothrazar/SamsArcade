@@ -248,7 +248,14 @@ namespace ArcadeDesktop
                 refreshRoms();
             }
         }
-
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            //TODO: make SHOWFORM function
+            this.Enabled = false;
+            var frm = new ArcadeDesktop.Forms.Help();
+            frm.ShowDialog();
+            this.Enabled = true;
+        }
         private void Main_Load(object sender, EventArgs e)
         {
          
@@ -304,14 +311,8 @@ namespace ArcadeDesktop
         /// <param name="e"></param>
         private void bindFilter_CurrentItemChanged(object sender, EventArgs e)
         {
-            refreshRoms();
+           // refreshRoms();
         }
-
-        private void comboStartsWith_SelectedValueChanged(object sender, EventArgs e)
-        {
-            var v = (sender as ComboBox).ValueMember;
-            var text = (sender as ComboBox).Text;
-        }
-  
+         
     }
 }
