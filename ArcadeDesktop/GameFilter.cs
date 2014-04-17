@@ -12,6 +12,7 @@ namespace ArcadeDesktop
         public bool ShowNES { get; set; }
         public bool ShowSNES { get; set; }
         public bool ShowGB { get; set; }
+        public string StartsWith { get; set; }
 
         /// <summary>
         /// based on the filter flags,which file extensions to we search by

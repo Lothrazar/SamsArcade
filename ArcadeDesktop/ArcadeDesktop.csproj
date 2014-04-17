@@ -176,6 +176,7 @@
     <None Include="Resources\image_link.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wrench.png" />
     <None Include="Resources\help.png" />
     <Content Include="Resources\NES-Cartridge.jpg" />
     <Content Include="Resources\snes_blank.jpg" />

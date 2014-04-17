@@ -33,13 +33,16 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.btnSettings = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkNes = new System.Windows.Forms.CheckBox();
-            this.checkGB = new System.Windows.Forms.CheckBox();
             this.checkSNES = new System.Windows.Forms.CheckBox();
+            this.checkGB = new System.Windows.Forms.CheckBox();
+            this.checkNes = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboStartsWith = new System.Windows.Forms.ComboBox();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
             this.panel1.SuspendLayout();
@@ -61,13 +64,14 @@
             // 
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.LargeImageList = this.imageList;
-            this.listView.Location = new System.Drawing.Point(74, 32);
+            this.listView.Location = new System.Drawing.Point(84, 32);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
             this.listView.ShowItemToolTips = true;
-            this.listView.Size = new System.Drawing.Size(284, 571);
+            this.listView.Size = new System.Drawing.Size(259, 571);
             this.listView.SmallImageList = this.imageList;
             this.listView.TabIndex = 9;
+            this.listView.TileSize = new System.Drawing.Size(184, 30);
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Tile;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
@@ -80,31 +84,23 @@
             this.imageList.Images.SetKeyName(0, "NES-Cartridge.jpg");
             this.imageList.Images.SetKeyName(1, "snes_blank.jpg");
             // 
-            // btnSettings
-            // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Location = new System.Drawing.Point(660, 3);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 23);
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.btnLaunch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(748, 32);
+            this.panel1.Size = new System.Drawing.Size(733, 32);
             this.panel1.TabIndex = 12;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.Controls.Add(this.comboStartsWith);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.checkSNES);
             this.panel2.Controls.Add(this.checkGB);
             this.panel2.Controls.Add(this.checkNes);
@@ -112,49 +108,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(74, 571);
+            this.panel2.Size = new System.Drawing.Size(84, 571);
             this.panel2.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Filters";
-            // 
-            // checkNes
-            // 
-            this.checkNes.AutoSize = true;
-            this.checkNes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowNES", true));
-            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowNES", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkNes.Location = new System.Drawing.Point(14, 42);
-            this.checkNes.Name = "checkNes";
-            this.checkNes.Size = new System.Drawing.Size(48, 17);
-            this.checkNes.TabIndex = 1;
-            this.checkNes.Text = "NES";
-            this.checkNes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkNes.UseVisualStyleBackColor = true;
-           // this.checkNes.CheckedChanged += new System.EventHandler(this.checkNes_CheckedChanged);
-           // this.checkNes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkNes_MouseUp);
-            // 
-            // checkGB
-            // 
-            this.checkGB.AutoSize = true;
-            this.checkGB.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowGB", true));
-            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowGB", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkGB.Location = new System.Drawing.Point(21, 88);
-            this.checkGB.Name = "checkGB";
-            this.checkGB.Size = new System.Drawing.Size(41, 17);
-            this.checkGB.TabIndex = 2;
-            this.checkGB.Text = "GB";
-            this.checkGB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkGB.UseVisualStyleBackColor = true;
-          //  this.checkGB.CheckedChanged += new System.EventHandler(this.checkGB_CheckedChanged);
             // 
             // checkSNES
             // 
@@ -162,14 +117,137 @@
             this.checkSNES.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkSNES.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowSNES", true));
             this.checkSNES.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowSNES", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkSNES.Location = new System.Drawing.Point(7, 65);
+            this.checkSNES.Location = new System.Drawing.Point(13, 44);
             this.checkSNES.Name = "checkSNES";
             this.checkSNES.Size = new System.Drawing.Size(55, 17);
             this.checkSNES.TabIndex = 3;
             this.checkSNES.Text = "SNES";
             this.checkSNES.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkSNES.UseVisualStyleBackColor = true;
-            //this.checkSNES.CheckedChanged += new System.EventHandler(this.checkSNES_CheckedChanged);
+            // 
+            // checkGB
+            // 
+            this.checkGB.AutoSize = true;
+            this.checkGB.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowGB", true));
+            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowGB", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkGB.Location = new System.Drawing.Point(27, 67);
+            this.checkGB.Name = "checkGB";
+            this.checkGB.Size = new System.Drawing.Size(41, 17);
+            this.checkGB.TabIndex = 2;
+            this.checkGB.Text = "GB";
+            this.checkGB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkGB.UseVisualStyleBackColor = true;
+            // 
+            // checkNes
+            // 
+            this.checkNes.AutoSize = true;
+            this.checkNes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowNES", true));
+            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowNES", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkNes.Location = new System.Drawing.Point(20, 21);
+            this.checkNes.Name = "checkNes";
+            this.checkNes.Size = new System.Drawing.Size(48, 17);
+            this.checkNes.TabIndex = 1;
+            this.checkNes.Text = "NES";
+            this.checkNes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkNes.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Filters";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Starts With";
+            // 
+            // comboStartsWith
+            // 
+            this.comboStartsWith.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bindFilter, "StartsWith", true));
+            this.comboStartsWith.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboStartsWith.FormattingEnabled = true;
+            this.comboStartsWith.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.comboStartsWith.Location = new System.Drawing.Point(39, 129);
+            this.comboStartsWith.MaxLength = 1;
+            this.comboStartsWith.Name = "comboStartsWith";
+            this.comboStartsWith.Size = new System.Drawing.Size(34, 21);
+            this.comboStartsWith.TabIndex = 6;
+            this.comboStartsWith.SelectedValueChanged += new System.EventHandler(this.comboStartsWith_SelectedValueChanged);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.Image = global::ArcadeDesktop.Properties.Resources.help;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(573, 3);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(66, 23);
+            this.btnHelp.TabIndex = 12;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Image = global::ArcadeDesktop.Properties.Resources.wrench;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(645, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // bindFilter
             // 
@@ -179,7 +257,7 @@
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gameReleaseForm.Location = new System.Drawing.Point(358, 32);
+            this.gameReleaseForm.Location = new System.Drawing.Point(343, 32);
             this.gameReleaseForm.Name = "gameReleaseForm";
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
@@ -188,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 603);
+            this.ClientSize = new System.Drawing.Size(733, 603);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.gameReleaseForm);
@@ -219,6 +297,9 @@
         private System.Windows.Forms.CheckBox checkSNES;
         private System.Windows.Forms.CheckBox checkGB;
         private System.Windows.Forms.CheckBox checkNes;
+        private System.Windows.Forms.ComboBox comboStartsWith;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

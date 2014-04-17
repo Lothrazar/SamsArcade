@@ -182,14 +182,22 @@ namespace ArcadeDesktop
             //filter by the bound checkboxes using file extensions
             var extensions = filter.visibleExtensions();
             var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
+
+             
+            
+            
             foreach (var file in files)
             {
-                var g = new GameRelease();
+                if (string.IsNullOrEmpty(filter.StartsWith) || file.Name.Substring(0,1) == filter.StartsWith)  
+                {
+                    //either the filter is null, or this matches the first letter filter
+                    var g = new GameRelease();
 
-                g.Gamefile = file.Name;
-                g.Extension = file.Extension;
+                    g.Gamefile = file.Name;
+                    g.Extension = file.Extension;
 
-                Program.GameReleaseList.Add(g);
+                    Program.GameReleaseList.Add(g);
+                } 
             }
             ListViewItem item;
              
@@ -297,6 +305,12 @@ namespace ArcadeDesktop
         private void bindFilter_CurrentItemChanged(object sender, EventArgs e)
         {
             refreshRoms();
+        }
+
+        private void comboStartsWith_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var v = (sender as ComboBox).ValueMember;
+            var text = (sender as ComboBox).Text;
         }
   
     }
