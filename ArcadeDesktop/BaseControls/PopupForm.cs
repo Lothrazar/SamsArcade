@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ArcadeDesktop.BaseControls
 {
-    public partial class BaseForm : Form
+    public partial class PopupForm : Form
     {
-        public BaseForm()
+        public PopupForm()
         {
             InitializeComponent();
         }

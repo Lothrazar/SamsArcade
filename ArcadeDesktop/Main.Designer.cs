@@ -37,14 +37,14 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.checkSNES = new System.Windows.Forms.CheckBox();
             this.checkGB = new System.Windows.Forms.CheckBox();
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
             this.startsWith = new System.Windows.Forms.TextBox();
+            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
+            this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(11, 3);
+            this.btnLaunch.Location = new System.Drawing.Point(3, 2);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(127, 23);
             this.btnLaunch.TabIndex = 2;
@@ -99,7 +99,7 @@
             // btnHelp
             // 
             this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHelp.Image = global::ArcadeDesktop.Properties.Resources.help;
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.Location = new System.Drawing.Point(573, 3);
             this.btnHelp.Name = "btnHelp";
@@ -113,7 +113,7 @@
             // btnSettings
             // 
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Image = global::ArcadeDesktop.Properties.Resources.wrench;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.Location = new System.Drawing.Point(645, 3);
             this.btnSettings.Name = "btnSettings";
@@ -138,11 +138,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(84, 571);
             this.panel2.TabIndex = 13;
-            // 
-            // bindFilter
-            // 
-            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
-            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
             // 
             // label2
             // 
@@ -206,14 +201,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Filters";
             // 
-            // gameReleaseForm
-            // 
-            this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gameReleaseForm.Location = new System.Drawing.Point(343, 32);
-            this.gameReleaseForm.Name = "gameReleaseForm";
-            this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
-            this.gameReleaseForm.TabIndex = 10;
-            // 
             // startsWith
             // 
             this.startsWith.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -221,6 +208,19 @@
             this.startsWith.Name = "startsWith";
             this.startsWith.Size = new System.Drawing.Size(51, 20);
             this.startsWith.TabIndex = 5;
+            // 
+            // bindFilter
+            // 
+            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
+            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
+            // 
+            // gameReleaseForm
+            // 
+            this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gameReleaseForm.Location = new System.Drawing.Point(343, 32);
+            this.gameReleaseForm.Name = "gameReleaseForm";
+            this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
+            this.gameReleaseForm.TabIndex = 10;
             // 
             // Main
             // 

@@ -1,6 +1,6 @@
 ﻿namespace ArcadeDesktop.BaseControls
 {
-    partial class BaseForm
+    partial class PopupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "BaseForm";
+            this.Text = "PopupForm";
         }
 
         #endregion
