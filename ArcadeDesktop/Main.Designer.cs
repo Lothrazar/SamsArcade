@@ -34,17 +34,17 @@
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.SearchBox = new System.Windows.Forms.TextBox();
-            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.checkSNES = new System.Windows.Forms.CheckBox();
             this.checkGB = new System.Windows.Forms.CheckBox();
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
@@ -97,6 +97,28 @@
             this.panel1.Size = new System.Drawing.Size(733, 32);
             this.panel1.TabIndex = 12;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::ArcadeDesktop.Properties.Resources.folder_magnify;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(279, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(63, 23);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.SearchBox.Location = new System.Drawing.Point(83, 5);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(190, 20);
+            this.SearchBox.TabIndex = 5;
+            this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
+            // 
             // btnHelp
             // 
             this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -139,26 +161,10 @@
             this.panel2.Size = new System.Drawing.Size(84, 571);
             this.panel2.TabIndex = 13;
             // 
-            // SearchBox
-            // 
-            this.SearchBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.SearchBox.Location = new System.Drawing.Point(83, 5);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(190, 20);
-            this.SearchBox.TabIndex = 5;
-            this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
-            // 
-            // bindFilter
-            // 
-            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
-            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
-            // 
             // checkSNES
             // 
             this.checkSNES.AutoSize = true;
             this.checkSNES.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkSNES.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowSNES", true));
-            this.checkSNES.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowSNES", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkSNES.Location = new System.Drawing.Point(13, 44);
             this.checkSNES.Name = "checkSNES";
             this.checkSNES.Size = new System.Drawing.Size(55, 17);
@@ -166,13 +172,12 @@
             this.checkSNES.Text = "SNES";
             this.checkSNES.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkSNES.UseVisualStyleBackColor = true;
+            this.checkSNES.CheckStateChanged += new System.EventHandler(this.checkSNES_CheckStateChanged);
             // 
             // checkGB
             // 
             this.checkGB.AutoSize = true;
             this.checkGB.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowGB", true));
-            this.checkGB.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowGB", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkGB.Location = new System.Drawing.Point(27, 67);
             this.checkGB.Name = "checkGB";
             this.checkGB.Size = new System.Drawing.Size(41, 17);
@@ -180,13 +185,12 @@
             this.checkGB.Text = "GB";
             this.checkGB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkGB.UseVisualStyleBackColor = true;
+            this.checkGB.CheckedChanged += new System.EventHandler(this.checkGB_CheckedChanged);
             // 
             // checkNes
             // 
             this.checkNes.AutoSize = true;
             this.checkNes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindFilter, "ShowNES", true));
-            this.checkNes.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bindFilter, "ShowNES", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkNes.Location = new System.Drawing.Point(20, 21);
             this.checkNes.Name = "checkNes";
             this.checkNes.Size = new System.Drawing.Size(48, 17);
@@ -194,6 +198,7 @@
             this.checkNes.Text = "NES";
             this.checkNes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkNes.UseVisualStyleBackColor = true;
+            this.checkNes.CheckStateChanged += new System.EventHandler(this.checkNes_CheckStateChanged);
             // 
             // label1
             // 
@@ -213,18 +218,10 @@
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
             // 
-            // btnSearch
+            // bindFilter
             // 
-            this.btnSearch.Image = global::ArcadeDesktop.Properties.Resources.folder_magnify;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(279, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(63, 23);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
+            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
             // 
             // Main
             // 

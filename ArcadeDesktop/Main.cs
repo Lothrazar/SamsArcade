@@ -333,5 +333,25 @@ namespace ArcadeDesktop
                 SearchGames();
             }
         }
+
+        private void checkNes_CheckStateChanged(object sender, EventArgs e)
+        {
+            filter.ShowNES = ((sender as CheckBox).CheckState == CheckState.Checked);
+            refreshRoms();
+        }
+
+        private void checkSNES_CheckStateChanged(object sender, EventArgs e)
+        { 
+            filter.ShowSNES = ((sender as CheckBox).CheckState == CheckState.Checked);
+            refreshRoms();
+        }
+
+        private void checkGB_CheckedChanged(object sender, EventArgs e)
+        {
+            filter.ShowGB = ((sender as CheckBox).CheckState == CheckState.Checked);
+            refreshRoms();
+        }
+
+         
     }
 }
