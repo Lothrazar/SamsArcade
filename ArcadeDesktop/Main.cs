@@ -183,14 +183,14 @@ namespace ArcadeDesktop
             var extensions = filter.visibleExtensions();
             var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
 
-             
-            
+
             
             foreach (var file in files)
             {
-                if (string.IsNullOrEmpty(filter.StartsWith) || file.Name.Substring(0,1) == filter.StartsWith)  
+                if (string.IsNullOrEmpty(filter.StartsWith) || file.Name.ToLower().StartsWith(filter.StartsWith.ToLower()))  
                 {
-                    //either the filter is null, or this matches the first letter filter
+                   
+                    //either the filter is null, or it matches
                     var g = new GameRelease();
 
                     g.Gamefile = file.Name;
@@ -313,6 +313,25 @@ namespace ArcadeDesktop
         {
            // refreshRoms();
         }
-         
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchGames();
+        }
+
+
+        private void SearchGames()
+        {
+            filter.StartsWith =  SearchBox.Text;
+            refreshRoms();
+        }
+
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchGames();
+            }
+        }
     }
 }

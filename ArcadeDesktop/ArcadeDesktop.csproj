@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseControls\BaseForm.cs">
+    <Compile Include="BaseControls\PopupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseControls\BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
+    <Compile Include="BaseControls\PopupForm.Designer.cs">
+      <DependentUpon>PopupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\GameReleaseForm.cs">
       <SubType>UserControl</SubType>

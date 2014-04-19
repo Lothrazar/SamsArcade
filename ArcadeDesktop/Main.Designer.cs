@@ -37,14 +37,14 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.SearchBox = new System.Windows.Forms.TextBox();
+            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.checkSNES = new System.Windows.Forms.CheckBox();
             this.checkGB = new System.Windows.Forms.CheckBox();
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.startsWith = new System.Windows.Forms.TextBox();
-            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
@@ -52,9 +52,9 @@
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(3, 2);
+            this.btnLaunch.Location = new System.Drawing.Point(9, 141);
             this.btnLaunch.Name = "btnLaunch";
-            this.btnLaunch.Size = new System.Drawing.Size(127, 23);
+            this.btnLaunch.Size = new System.Drawing.Size(72, 23);
             this.btnLaunch.TabIndex = 2;
             this.btnLaunch.Text = "Launch";
             this.btnLaunch.UseVisualStyleBackColor = true;
@@ -87,9 +87,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnSearch);
+            this.panel1.Controls.Add(this.SearchBox);
             this.panel1.Controls.Add(this.btnHelp);
             this.panel1.Controls.Add(this.btnSettings);
-            this.panel1.Controls.Add(this.btnLaunch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -127,11 +128,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.startsWith);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.checkSNES);
             this.panel2.Controls.Add(this.checkGB);
             this.panel2.Controls.Add(this.checkNes);
+            this.panel2.Controls.Add(this.btnLaunch);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 32);
@@ -139,15 +139,19 @@
             this.panel2.Size = new System.Drawing.Size(84, 571);
             this.panel2.TabIndex = 13;
             // 
-            // label2
+            // SearchBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Starts With";
+            this.SearchBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.SearchBox.Location = new System.Drawing.Point(83, 5);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(190, 20);
+            this.SearchBox.TabIndex = 5;
+            this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
+            // 
+            // bindFilter
+            // 
+            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
+            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
             // 
             // checkSNES
             // 
@@ -201,19 +205,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Filters";
             // 
-            // startsWith
-            // 
-            this.startsWith.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindFilter, "StartsWith", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.startsWith.Location = new System.Drawing.Point(13, 140);
-            this.startsWith.Name = "startsWith";
-            this.startsWith.Size = new System.Drawing.Size(51, 20);
-            this.startsWith.TabIndex = 5;
-            // 
-            // bindFilter
-            // 
-            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
-            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
-            // 
             // gameReleaseForm
             // 
             this.gameReleaseForm.Dock = System.Windows.Forms.DockStyle.Right;
@@ -221,6 +212,19 @@
             this.gameReleaseForm.Name = "gameReleaseForm";
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::ArcadeDesktop.Properties.Resources.folder_magnify;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(279, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(63, 23);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Main
             // 
@@ -236,6 +240,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).EndInit();
@@ -257,9 +262,9 @@
         private System.Windows.Forms.CheckBox checkSNES;
         private System.Windows.Forms.CheckBox checkGB;
         private System.Windows.Forms.CheckBox checkNes;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.TextBox startsWith;
+        private System.Windows.Forms.TextBox SearchBox;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
