@@ -94,7 +94,7 @@ namespace ArcadeDesktop.Controls
             //var files = extsToSearch.SelectMany(ext => dir.GetFiles("*." + ext)).ToList();//var files = dir.GetFiles("*.nes");
             var files = extsToSearch.SelectMany(ext => dir.GetFiles(game.game_id + "." + ext)).ToList();//var files = dir.GetFiles("*.nes");
             //TODO: loop/merge
-
+            game.saveStates = new List<string>();
             game.saveStates.AddRange(files.Select(x => x.FullName));
             textSaves.Text = game.saveStates.Count.ToString();
 
