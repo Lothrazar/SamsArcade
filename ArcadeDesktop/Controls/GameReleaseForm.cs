@@ -28,10 +28,12 @@ namespace ArcadeDesktop.Controls
 
             bindGameRelease.DataSource = game;
 
-            tryFindImage(game);
+            tryFindImage();
+
+            searchAllSaves();
         }
 
-        private void tryFindImage(GameRelease game)
+        private void tryFindImage()
         {
             string folder = Properties.Settings.Default.nes_img + "\\";
             string img = game.Gamefile + ".png";//image file names are not stored right now
@@ -66,6 +68,12 @@ namespace ArcadeDesktop.Controls
 
         private void btnStates_Click(object sender, EventArgs e)
         {
+            searchAllSaves();
+             
+        }
+
+        private void searchAllSaves()
+        {
             string search = Properties.Settings.Default.nes_rom + "\\";
 
             //search for states
@@ -79,20 +87,20 @@ namespace ArcadeDesktop.Controls
                             ,"ss3","ss4","ss5"
                             ,"ss6","ss7","ss8","ss9"};
 
-            
+
             DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.nes_rom);
- 
-            
+
+
             //filter by the bound checkboxes using file extensions
             //var extensions = filter.visibleExtensions();
             //var files = extsToSearch.SelectMany(ext => dir.GetFiles("*." + ext)).ToList();//var files = dir.GetFiles("*.nes");
-            var files = extsToSearch.SelectMany(ext => dir.GetFiles(game.game_id+"." + ext)).ToList();//var files = dir.GetFiles("*.nes");
+            var files = extsToSearch.SelectMany(ext => dir.GetFiles(game.game_id + "." + ext)).ToList();//var files = dir.GetFiles("*.nes");
             //TODO: loop/merge
 
-            game.saveStates.AddRange(files.Select(x=>x.FullName));
+            game.saveStates.AddRange(files.Select(x => x.FullName));
             textSaves.Text = game.saveStates.Count.ToString();
 
-                //String.Join(",",game.saveStates.Select(x => x).ToArray());
+            //String.Join(",",game.saveStates.Select(x => x).ToArray());
 
             /*   foreach (var file in files)
             {
@@ -108,7 +116,6 @@ namespace ArcadeDesktop.Controls
                     Program.GameReleaseList.Add(g);
                 } 
             }*/
-             
         } 
     }
 }
