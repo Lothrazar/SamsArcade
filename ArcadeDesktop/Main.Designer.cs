@@ -233,6 +233,7 @@
             this.Controls.Add(this.gameReleaseForm);
             this.Controls.Add(this.panel1);
             this.Name = "Main";
+            this.ShowIcon = false;
             this.Text = "Sam\'s Arcade";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ArcadeDataLayer.Objects;
 using ArcadeDesktop.Forms;
+using System.IO;
 
 namespace ArcadeDesktop.Controls
 {
@@ -26,7 +27,6 @@ namespace ArcadeDesktop.Controls
             game = gr;
 
             bindGameRelease.DataSource = game;
-
 
             tryFindImage(game);
         }
@@ -62,6 +62,53 @@ namespace ArcadeDesktop.Controls
             frm.setGame(this.game);
             frm.ShowDialog();
             this.Enabled = true; 
+        }
+
+        private void btnStates_Click(object sender, EventArgs e)
+        {
+            string search = Properties.Settings.Default.nes_rom + "\\";
+
+            //search for states
+
+            System.Diagnostics.Process.Start(search);
+
+            //""ss0 to ss9
+
+            List<string> extsToSearch = new List<string>() { 
+                             "ss0","ss1","ss2"
+                            ,"ss3","ss4","ss5"
+                            ,"ss6","ss7","ss8","ss9"};
+
+            
+            DirectoryInfo dir = new DirectoryInfo(Properties.Settings.Default.nes_rom);
+ 
+            
+            //filter by the bound checkboxes using file extensions
+            //var extensions = filter.visibleExtensions();
+            //var files = extsToSearch.SelectMany(ext => dir.GetFiles("*." + ext)).ToList();//var files = dir.GetFiles("*.nes");
+            var files = extsToSearch.SelectMany(ext => dir.GetFiles(game.game_id+"." + ext)).ToList();//var files = dir.GetFiles("*.nes");
+            //TODO: loop/merge
+
+            game.saveStates.AddRange(files.Select(x=>x.FullName));
+            textSaves.Text = game.saveStates.Count.ToString();
+
+                //String.Join(",",game.saveStates.Select(x => x).ToArray());
+
+            /*   foreach (var file in files)
+            {
+                if (string.IsNullOrEmpty(filter.StartsWith) || file.Name.ToLower().StartsWith(filter.StartsWith.ToLower()))  
+                {
+                   
+                    //either the filter is null, or it matches
+                    var g = new GameRelease();
+
+                    g.Gamefile = file.Name;
+                    g.Extension = file.Extension;
+
+                    Program.GameReleaseList.Add(g);
+                } 
+            }*/
+             
         } 
     }
 }

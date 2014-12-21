@@ -153,7 +153,7 @@ namespace ArcadeDesktop
                      }
                    */
                 #endregion
-            }//end of try
+            }//end of tryelease
             catch (Exception e)
             {
                 MessageBox.Show("Cannot find emulator.  Link to the file in the Settings menu.  If this still does not work, try setting the emulator as the default program to open the files (snes9x needs this sometimes)");
@@ -183,13 +183,11 @@ namespace ArcadeDesktop
             var extensions = filter.visibleExtensions();
             var files = extensions.SelectMany(ext => dir.GetFiles(ext));//var files = dir.GetFiles("*.nes");
 
-
             
             foreach (var file in files)
             {
                 if (string.IsNullOrEmpty(filter.StartsWith) || file.Name.ToLower().StartsWith(filter.StartsWith.ToLower()))  
                 {
-                   
                     //either the filter is null, or it matches
                     var g = new GameRelease();
 
@@ -199,6 +197,7 @@ namespace ArcadeDesktop
                     Program.GameReleaseList.Add(g);
                 } 
             }
+
             ListViewItem item;
              
             //  gameReleaseGrid.RefreshRoms(GameReleaseList);
@@ -248,6 +247,7 @@ namespace ArcadeDesktop
                 refreshRoms();
             }
         }
+        
         private void btnHelp_Click(object sender, EventArgs e)
         {
             //TODO: make SHOWFORM function
@@ -256,10 +256,9 @@ namespace ArcadeDesktop
             frm.ShowDialog();
             this.Enabled = true;
         }
+
         private void Main_Load(object sender, EventArgs e)
         {
-         
-
             refreshRoms(); 
         }
  
@@ -279,8 +278,6 @@ namespace ArcadeDesktop
                 Properties.Settings.Default.Save();
             }
         }
-
-      
 
         private void manageGamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
