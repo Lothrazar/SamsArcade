@@ -36,8 +36,9 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.btnStates = new System.Windows.Forms.Button();
             this.textYear = new System.Windows.Forms.TextBox();
-            this.bindGameRelease = new System.Windows.Forms.BindingSource(this.components);
             this.textSaves = new System.Windows.Forms.TextBox();
+            this.bindGameRelease = new System.Windows.Forms.BindingSource(this.components);
+            this.btnFolder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindGameRelease)).BeginInit();
@@ -54,6 +55,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFolder);
             this.panel1.Controls.Add(this.textSaves);
             this.panel1.Controls.Add(this.textYear);
             this.panel1.Controls.Add(this.btnStates);
@@ -114,14 +116,10 @@
             // textYear
             // 
             this.textYear.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindGameRelease, "year", true));
-            this.textYear.Location = new System.Drawing.Point(297, 59);
+            this.textYear.Location = new System.Drawing.Point(336, 78);
             this.textYear.Name = "textYear";
             this.textYear.Size = new System.Drawing.Size(100, 20);
             this.textYear.TabIndex = 10;
-            // 
-            // bindGameRelease
-            // 
-            this.bindGameRelease.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
             // 
             // textSaves
             // 
@@ -130,6 +128,23 @@
             this.textSaves.Name = "textSaves";
             this.textSaves.Size = new System.Drawing.Size(100, 20);
             this.textSaves.TabIndex = 11;
+            // 
+            // bindGameRelease
+            // 
+            this.bindGameRelease.DataSource = typeof(ArcadeDataLayer.Objects.GameRelease);
+            // 
+            // btnFolder
+            // 
+            this.btnFolder.Image = global::ArcadeDesktop.Properties.Resources.image_link;
+            this.btnFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFolder.Location = new System.Drawing.Point(278, 58);
+            this.btnFolder.Name = "btnFolder";
+            this.btnFolder.Size = new System.Drawing.Size(100, 22);
+            this.btnFolder.TabIndex = 12;
+            this.btnFolder.Text = "Open Folder";
+            this.btnFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFolder.UseVisualStyleBackColor = true;
+            this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
             // 
             // GameReleaseForm
             // 
@@ -158,5 +173,6 @@
         private System.Windows.Forms.Button btnStates;
         private System.Windows.Forms.TextBox textYear;
         private System.Windows.Forms.TextBox textSaves;
+        private System.Windows.Forms.Button btnFolder;
     }
 }

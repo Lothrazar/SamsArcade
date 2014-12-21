@@ -64,6 +64,8 @@ namespace ArcadeDesktop.Controls
             frm.setGame(this.game);
             frm.ShowDialog();
             this.Enabled = true; 
+
+
         }
 
         private void btnStates_Click(object sender, EventArgs e)
@@ -74,11 +76,7 @@ namespace ArcadeDesktop.Controls
 
         private void searchAllSaves()
         {
-            string search = Properties.Settings.Default.nes_rom + "\\";
-
-            //search for states
-
-            System.Diagnostics.Process.Start(search);
+            
 
             //""ss0 to ss9
 
@@ -116,6 +114,17 @@ namespace ArcadeDesktop.Controls
                     Program.GameReleaseList.Add(g);
                 } 
             }*/
+        }
+
+  
+        private void btnFolder_Click(object sender, EventArgs e)
+        {
+
+            string search = Properties.Settings.Default.nes_rom + "\\";
+
+            //search for states
+
+            System.Diagnostics.Process.Start(search);
         } 
     }
 }
