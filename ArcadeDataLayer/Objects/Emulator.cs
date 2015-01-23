@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace ArcadeDataLayer.Objects
 {
-    class Emulator
+    public class Emulator
     {
+
         public Emulator()
         {
             list_file_exts = new List<string>();
         }
-        public String filepath { get; set; }
-        public String icon { get; set; }
+        public string name { get; set; }
+        public string homepage { get; set; }
+        public string filepath { get; set; }
+        public string icon { get; set; }
 
-        public List<String> list_file_exts { get; set; }
+        public List<string> list_file_exts { get; set; }
          
         public string display_file_exts
         {

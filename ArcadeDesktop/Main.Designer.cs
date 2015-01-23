@@ -34,6 +34,7 @@
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEmus = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
@@ -45,7 +46,6 @@
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
-            this.btnEmus = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
             this.panel2.SuspendLayout();
@@ -98,6 +98,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(733, 32);
             this.panel1.TabIndex = 12;
+            // 
+            // btnEmus
+            // 
+            this.btnEmus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEmus.Image = global::ArcadeDesktop.Properties.Resources.image_link;
+            this.btnEmus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmus.Location = new System.Drawing.Point(566, 2);
+            this.btnEmus.Name = "btnEmus";
+            this.btnEmus.Size = new System.Drawing.Size(81, 23);
+            this.btnEmus.TabIndex = 13;
+            this.btnEmus.Text = "Emulators";
+            this.btnEmus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmus.UseVisualStyleBackColor = true;
+            this.btnEmus.Click += new System.EventHandler(this.btnEmus_Click);
             // 
             // btnSearch
             // 
@@ -224,19 +238,6 @@
             this.gameReleaseForm.Name = "gameReleaseForm";
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
-            // 
-            // btnEmus
-            // 
-            this.btnEmus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEmus.Image = global::ArcadeDesktop.Properties.Resources.image_link;
-            this.btnEmus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmus.Location = new System.Drawing.Point(566, 2);
-            this.btnEmus.Name = "btnEmus";
-            this.btnEmus.Size = new System.Drawing.Size(81, 23);
-            this.btnEmus.TabIndex = 13;
-            this.btnEmus.Text = "Emulators";
-            this.btnEmus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmus.UseVisualStyleBackColor = true;
             // 
             // Main
             // 

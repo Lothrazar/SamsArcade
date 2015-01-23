@@ -28,11 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.manageEmulatorsGrid1 = new ArcadeDesktop.Controls.ManageEmulatorsGrid();
+            this.SuspendLayout();
+            // 
+            // manageEmulatorsGrid1
+            // 
+            this.manageEmulatorsGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.manageEmulatorsGrid1.Location = new System.Drawing.Point(0, 0);
+            this.manageEmulatorsGrid1.Name = "manageEmulatorsGrid1";
+            this.manageEmulatorsGrid1.Size = new System.Drawing.Size(650, 276);
+            this.manageEmulatorsGrid1.TabIndex = 0;
+            // 
+            // ManageEmulatorsForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(650, 276);
+            this.Controls.Add(this.manageEmulatorsGrid1);
+            this.Name = "ManageEmulatorsForm";
             this.Text = "ManageEmulatorsForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Controls.ManageEmulatorsGrid manageEmulatorsGrid1;
     }
 }

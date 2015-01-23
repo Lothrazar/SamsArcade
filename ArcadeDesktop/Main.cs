@@ -349,6 +349,12 @@ namespace ArcadeDesktop
             refreshRoms();
         }
 
+        private void btnEmus_Click(object sender, EventArgs e)
+        {
+            var form = new ManageEmulatorsForm();
+            form.ShowDialog();
+        }
+
          
     }
 }

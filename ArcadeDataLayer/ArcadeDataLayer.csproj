@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataWriterCSV.cs" />
+    <Compile Include="Objects\Emulator.cs" />
     <Compile Include="Objects\Game.cs" />
     <Compile Include="Objects\GameRelease.cs" />
     <Compile Include="Objects\GameReleaseImage.cs" />
