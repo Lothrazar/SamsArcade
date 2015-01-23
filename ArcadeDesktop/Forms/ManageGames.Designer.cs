@@ -56,9 +56,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(244, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(248, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(349, 529);
+            this.pictureBox1.Size = new System.Drawing.Size(349, 500);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
@@ -66,7 +66,7 @@
             // lblFileType
             // 
             this.lblFileType.AutoSize = true;
-            this.lblFileType.Location = new System.Drawing.Point(245, 557);
+            this.lblFileType.Location = new System.Drawing.Point(268, 524);
             this.lblFileType.Name = "lblFileType";
             this.lblFileType.Size = new System.Drawing.Size(35, 13);
             this.lblFileType.TabIndex = 19;

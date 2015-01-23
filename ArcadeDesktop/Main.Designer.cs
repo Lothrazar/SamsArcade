@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
+            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,10 +45,10 @@
             this.checkNes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gameReleaseForm = new ArcadeDesktop.Controls.GameReleaseForm();
-            this.bindFilter = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEmus = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLaunch
@@ -87,6 +88,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnEmus);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.SearchBox);
             this.panel1.Controls.Add(this.btnHelp);
@@ -119,12 +121,17 @@
             this.SearchBox.TabIndex = 5;
             this.SearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBox_KeyDown);
             // 
+            // bindFilter
+            // 
+            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
+            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
+            // 
             // btnHelp
             // 
             this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(573, 3);
+            this.btnHelp.Location = new System.Drawing.Point(494, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(66, 23);
             this.btnHelp.TabIndex = 12;
@@ -138,7 +145,7 @@
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(645, 3);
+            this.btnSettings.Location = new System.Drawing.Point(653, 2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 11;
@@ -218,10 +225,18 @@
             this.gameReleaseForm.Size = new System.Drawing.Size(390, 571);
             this.gameReleaseForm.TabIndex = 10;
             // 
-            // bindFilter
+            // btnEmus
             // 
-            this.bindFilter.DataSource = typeof(ArcadeDesktop.GameFilter);
-            this.bindFilter.CurrentItemChanged += new System.EventHandler(this.bindFilter_CurrentItemChanged);
+            this.btnEmus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEmus.Image = global::ArcadeDesktop.Properties.Resources.image_link;
+            this.btnEmus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmus.Location = new System.Drawing.Point(566, 2);
+            this.btnEmus.Name = "btnEmus";
+            this.btnEmus.Size = new System.Drawing.Size(81, 23);
+            this.btnEmus.TabIndex = 13;
+            this.btnEmus.Text = "Emulators";
+            this.btnEmus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmus.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -239,9 +254,9 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindFilter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,6 +278,7 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnEmus;
     }
 }
 

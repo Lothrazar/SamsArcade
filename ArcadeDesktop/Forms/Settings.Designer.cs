@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 194);
+            this.label1.Location = new System.Drawing.Point(12, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
             this.label1.TabIndex = 0;
@@ -61,9 +61,9 @@
             this.nesEmuText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nesEmuText.Enabled = false;
-            this.nesEmuText.Location = new System.Drawing.Point(148, 192);
+            this.nesEmuText.Location = new System.Drawing.Point(146, 116);
             this.nesEmuText.Name = "nesEmuText";
-            this.nesEmuText.Size = new System.Drawing.Size(489, 20);
+            this.nesEmuText.Size = new System.Drawing.Size(262, 20);
             this.nesEmuText.TabIndex = 3;
             // 
             // openFileDialog
@@ -164,7 +164,7 @@
             // 
             this.btnSetNesEmu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSetNesEmu.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
-            this.btnSetNesEmu.Location = new System.Drawing.Point(643, 189);
+            this.btnSetNesEmu.Location = new System.Drawing.Point(424, 114);
             this.btnSetNesEmu.Name = "btnSetNesEmu";
             this.btnSetNesEmu.Size = new System.Drawing.Size(28, 23);
             this.btnSetNesEmu.TabIndex = 2;
@@ -176,16 +176,16 @@
             this.snesEmuText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.snesEmuText.Enabled = false;
-            this.snesEmuText.Location = new System.Drawing.Point(148, 218);
+            this.snesEmuText.Location = new System.Drawing.Point(146, 142);
             this.snesEmuText.Name = "snesEmuText";
-            this.snesEmuText.Size = new System.Drawing.Size(489, 20);
+            this.snesEmuText.Size = new System.Drawing.Size(262, 20);
             this.snesEmuText.TabIndex = 14;
             // 
             // btnSetSNesEmu
             // 
             this.btnSetSNesEmu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSetSNesEmu.Image = global::ArcadeDesktop.Properties.Resources.magnifier;
-            this.btnSetSNesEmu.Location = new System.Drawing.Point(643, 215);
+            this.btnSetSNesEmu.Location = new System.Drawing.Point(424, 139);
             this.btnSetSNesEmu.Name = "btnSetSNesEmu";
             this.btnSetSNesEmu.Size = new System.Drawing.Size(28, 23);
             this.btnSetSNesEmu.TabIndex = 13;
@@ -195,7 +195,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 220);
+            this.label4.Location = new System.Drawing.Point(12, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 13);
             this.label4.TabIndex = 12;
@@ -204,7 +204,7 @@
             // linkSNES
             // 
             this.linkSNES.AutoSize = true;
-            this.linkSNES.Location = new System.Drawing.Point(187, 267);
+            this.linkSNES.Location = new System.Drawing.Point(400, 302);
             this.linkSNES.Name = "linkSNES";
             this.linkSNES.Size = new System.Drawing.Size(134, 13);
             this.linkSNES.TabIndex = 15;
@@ -215,7 +215,7 @@
             // linkNES
             // 
             this.linkNES.AutoSize = true;
-            this.linkNES.Location = new System.Drawing.Point(190, 284);
+            this.linkNES.Location = new System.Drawing.Point(400, 327);
             this.linkNES.Name = "linkNES";
             this.linkNES.Size = new System.Drawing.Size(127, 13);
             this.linkNES.TabIndex = 16;

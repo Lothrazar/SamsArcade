@@ -11,7 +11,7 @@ namespace ArcadeDataLayer.Objects
     {
         public Game() { }
         private string name;
-
+        
         private string developer;
 
         private string publisher;
