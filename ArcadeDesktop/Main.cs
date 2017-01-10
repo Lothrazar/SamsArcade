@@ -79,7 +79,7 @@ namespace ArcadeDesktop
         private   void LaunchGame(GameRelease game)
         {
             string exe = string.Empty;
-            string file = Properties.Settings.Default.nes_rom + @"\" + game.Gamefile;
+            string file = Properties.Settings.Default.nes_rom + @"\" + game.Gamefile;//NPE here if launch pressed while things are empty TODO: 
             ProcessStartInfo startInfo;
             Process process;
 
